@@ -11,7 +11,7 @@ export const FloatingWhatsApp = () => {
   const defaultMsg = getAppointmentBookingMessage('', language);
 
   return (
-    <div className="fixed bottom-6 end-6 z-50 flex items-end gap-3 select-none">
+    <div className="fixed bottom-12 sm:bottom-14 end-6 z-50 flex items-end gap-3 select-none">
       {/* Friendly Chat Tooltip Bubble */}
       {showTooltip && (
         <div className="hidden sm:flex items-center gap-2 bg-white text-[#3A3A3A] px-3.5 py-2 rounded-2xl shadow-lg border border-[#F4E4DE] text-xs animate-in fade-in slide-in-from-bottom-2 duration-300">

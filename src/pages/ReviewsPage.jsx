@@ -33,6 +33,7 @@ export const ReviewsPage = () => {
     <div className="min-h-screen bg-white py-12 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
+          as="h1"
           eyebrow={isRTL ? "مریضوں کا تاثر" : "Patient Testimonials"}
           title={isRTL ? "ہمارے مریضوں کی سچی آراء" : "Real Experiences From Real Patients"}
           subtitle={isRTL

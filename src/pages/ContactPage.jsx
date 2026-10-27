@@ -63,6 +63,7 @@ export const ContactPage = () => {
     <div className="min-h-screen bg-white py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
+          as="h1"
           eyebrow={isRTL ? "ہم سے رابطہ کریں" : "Contact & Appointments"}
           title={isRTL ? "رائل کلینک سے رابطہ اور کلینیکل ایڈریس" : "Visit or Contact Royal Aesthetic & Laser Clinic"}
           subtitle={isRTL

@@ -48,11 +48,16 @@ export const Header = () => {
               }}
             >
               <div className="w-10 h-10 rounded-xl overflow-hidden shadow-xs border border-[#F4E4DE] bg-white group-hover:scale-105 transition-transform shrink-0 flex items-center justify-center p-0.5">
-                <img 
-                  src="/assets/aistudio/Golden_Crowned_R_Emblem_44ae7f4a.png" 
-                  alt="Royal Aesthetic & Laser Clinic Logo" 
-                  className="w-full h-full object-contain"
-                />
+                <picture>
+                  <source srcSet="/assets/aistudio/Golden_Crowned_R_Emblem_44ae7f4a.webp" type="image/webp" />
+                  <img 
+                    src="/assets/aistudio/Golden_Crowned_R_Emblem_44ae7f4a.png" 
+                    alt="Royal Aesthetic & Laser Clinic Logo" 
+                    width="40"
+                    height="40"
+                    className="w-full h-full object-contain"
+                  />
+                </picture>
               </div>
               <div className="flex flex-col text-start">
                 <span 

@@ -131,6 +131,7 @@ export const CheckoutPage = () => {
       const orderPayload = {
         orderNumber,
         customer: {
+          name: formData.fullName.trim(),
           fullName: formData.fullName.trim(),
           phone: formData.phone.trim(),
           city: formData.city,
@@ -139,7 +140,7 @@ export const CheckoutPage = () => {
         },
         items: cart.map(item => ({
           id: item.id,
-          name: item.name,
+          name: typeof item.name === 'object' ? (item.name.en || item.name) : item.name,
           price: item.price || 0,
           quantity: item.quantity,
           category: item.category || ''
@@ -153,11 +154,11 @@ export const CheckoutPage = () => {
         createdAt: new Date().toISOString()
       };
 
-      // Save order in Firestore
-      await createGuestOrder(orderPayload);
+      // Save order in Firestore with strict server-side validation
+      const verifiedPayload = await createGuestOrder(orderPayload);
 
       // Save temporary order summary in session storage for Order Confirmation page
-      sessionStorage.setItem('royal_last_order', JSON.stringify(orderPayload));
+      sessionStorage.setItem('royal_last_order', JSON.stringify(verifiedPayload || orderPayload));
 
       // Clear shopping cart
       clearCart();

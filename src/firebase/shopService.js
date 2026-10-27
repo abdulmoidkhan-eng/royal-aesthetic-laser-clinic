@@ -133,22 +133,128 @@ export async function getProductById(id) {
 }
 
 /**
- * Save customer guest order in Firestore
- * Status strictly: "Pending payment verification"
+ * Strictly validate and create customer guest order in Firestore
+ * - Enforces clean customer inputs (name, phone, address, city)
+ * - Validates each item ID against actual catalog
+ * - Authoritatively re-computes line totals and totalAmount from database unit prices
+ * - Enforces initial status: "Pending payment verification"
  */
 export async function createGuestOrder(orderData) {
   try {
-    const orderDocId = orderData.orderNumber || `ROYAL-${Math.floor(100000 + Math.random() * 900000)}`;
-    const docRef = doc(db, ORDERS_COLLECTION, orderDocId);
+    if (!orderData || typeof orderData !== 'object') {
+      throw new Error('Invalid order payload: Order data is required.');
+    }
+
+    const { customer, items, paymentMethod, transactionId } = orderData;
+
+    // 1. Validate Customer Object
+    if (!customer || typeof customer !== 'object') {
+      throw new Error('Customer information is required.');
+    }
+
+    const sanitizedName = String(customer.name || '').trim();
+    const sanitizedPhone = String(customer.phone || '').trim().replace(/[\s-]/g, '');
+    const sanitizedAddress = String(customer.address || '').trim();
+    const sanitizedCity = String(customer.city || '').trim();
+
+    if (sanitizedName.length < 2 || sanitizedName.length > 120) {
+      throw new Error('Please provide a valid full name (2-120 characters).');
+    }
+
+    if (sanitizedPhone.length < 8 || sanitizedPhone.length > 25) {
+      throw new Error('Please provide a valid phone/WhatsApp number.');
+    }
+
+    if (sanitizedAddress.length < 5 || sanitizedAddress.length > 300) {
+      throw new Error('Please provide a complete shipping address (minimum 5 characters).');
+    }
+
+    if (sanitizedCity.length < 2 || sanitizedCity.length > 80) {
+      throw new Error('Please provide a valid delivery city.');
+    }
+
+    // 2. Validate Items & Re-calculate Authoritative Prices
+    if (!Array.isArray(items) || items.length === 0 || items.length > 20) {
+      throw new Error('Your cart must contain between 1 and 20 items.');
+    }
+
+    // Fetch authoritative products catalog
+    const allProducts = await getProducts();
+    const productCatalogMap = new Map(allProducts.map(p => [p.id, p]));
+    // Also merge with SEED_PRODUCTS as baseline guarantee
+    SEED_PRODUCTS.forEach(p => {
+      if (!productCatalogMap.has(p.id)) {
+        productCatalogMap.set(p.id, p);
+      }
+    });
+
+    const verifiedItems = [];
+    let authoritativeTotal = 0;
+
+    for (const item of items) {
+      if (!item || !item.id) {
+        throw new Error('Invalid item encountered in order.');
+      }
+
+      const authoritativeProduct = productCatalogMap.get(item.id);
+      if (!authoritativeProduct) {
+        throw new Error(`Product "${item.id}" is no longer available in the dispensary catalog.`);
+      }
+
+      const rawQty = Number(item.quantity);
+      if (!Number.isInteger(rawQty) || rawQty < 1 || rawQty > 50) {
+        throw new Error(`Invalid quantity for product ${authoritativeProduct.name?.en || item.id}.`);
+      }
+
+      // Enforce authoritative unit price (defaults to 0 if admin pending)
+      const unitPrice = typeof authoritativeProduct.price === 'number' && authoritativeProduct.price > 0
+        ? authoritativeProduct.price
+        : 0;
+
+      const subtotal = unitPrice * rawQty;
+      authoritativeTotal += subtotal;
+
+      verifiedItems.push({
+        id: authoritativeProduct.id,
+        name: authoritativeProduct.name?.en || authoritativeProduct.name,
+        price: unitPrice,
+        quantity: rawQty,
+        size: authoritativeProduct.size || '',
+        category: authoritativeProduct.category || ''
+      });
+    }
+
+    // 3. Validate Payment Method
+    const validPaymentMethods = ['easypaisa', 'jazzcash', 'bank'];
+    if (!validPaymentMethods.includes(paymentMethod)) {
+      throw new Error('Please select a valid payment method (Easypaisa, JazzCash, or Bank Transfer).');
+    }
+
+    const sanitizedTxnId = String(transactionId || '').trim();
+    if (sanitizedTxnId.length < 3 || sanitizedTxnId.length > 64) {
+      throw new Error('Please provide a valid Transaction ID / Reference Number (min 3 characters).');
+    }
+
+    // 4. Generate Order Identifier & Construct Strictly Typed Payload
+    const uniqueOrderNumber = orderData.orderNumber && orderData.orderNumber.startsWith('ROYAL-')
+      ? orderData.orderNumber
+      : `ROYAL-${Date.now().toString().slice(-6)}-${Math.floor(100 + Math.random() * 900)}`;
+
+    const docRef = doc(db, ORDERS_COLLECTION, uniqueOrderNumber);
 
     const payload = {
-      orderNumber: orderDocId,
-      customer: orderData.customer,
-      items: orderData.items,
-      totalAmount: orderData.totalAmount,
+      orderNumber: uniqueOrderNumber,
+      customer: {
+        name: sanitizedName,
+        phone: sanitizedPhone,
+        address: sanitizedAddress,
+        city: sanitizedCity
+      },
+      items: verifiedItems,
+      totalAmount: authoritativeTotal,
       delivery: "Free delivery all over Pakistan",
-      paymentMethod: orderData.paymentMethod,
-      transactionId: orderData.transactionId,
+      paymentMethod,
+      transactionId: sanitizedTxnId,
       screenshotUrl: orderData.screenshotUrl || null,
       status: "Pending payment verification",
       createdAt: new Date().toISOString()
@@ -157,6 +263,7 @@ export async function createGuestOrder(orderData) {
     await setDoc(docRef, payload);
     return payload;
   } catch (error) {
-    handleFirestoreError(error, OperationType.CREATE, ORDERS_COLLECTION);
+    console.error('[Order Error]', error.message);
+    throw error;
   }
 }

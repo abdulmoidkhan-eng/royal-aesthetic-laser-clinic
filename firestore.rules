@@ -59,14 +59,35 @@ service cloud.firestore {
     }
 
     // Orders collection:
-    // Visitors can ONLY create orders with valid structure and initial pending status.
+    // Visitors can ONLY create orders with strictly validated structure and initial pending status.
     // Visitors CANNOT read, list, update, or delete orders.
     // Only the verified clinic admin can read, list, update, or delete orders.
     match /orders/{orderId} {
       allow create: if isValidId(orderId) &&
         request.resource.data.orderNumber is string &&
+        request.resource.data.orderNumber.size() >= 5 &&
+        request.resource.data.orderNumber.size() <= 64 &&
+        request.resource.data.customer is map &&
+        request.resource.data.customer.name is string &&
+        request.resource.data.customer.name.size() >= 2 &&
+        request.resource.data.customer.name.size() <= 120 &&
+        request.resource.data.customer.phone is string &&
+        request.resource.data.customer.phone.size() >= 8 &&
+        request.resource.data.customer.phone.size() <= 25 &&
+        request.resource.data.customer.address is string &&
+        request.resource.data.customer.address.size() >= 5 &&
+        request.resource.data.customer.city is string &&
+        request.resource.data.customer.city.size() >= 2 &&
+        request.resource.data.items is list &&
+        request.resource.data.items.size() >= 1 &&
+        request.resource.data.items.size() <= 20 &&
+        request.resource.data.totalAmount is number &&
+        request.resource.data.totalAmount >= 0 &&
+        request.resource.data.paymentMethod in ['easypaisa', 'jazzcash', 'bank'] &&
         request.resource.data.transactionId is string &&
-        request.resource.data.status == "Pending payment verification";
+        request.resource.data.transactionId.size() >= 3 &&
+        request.resource.data.status == "Pending payment verification" &&
+        request.resource.data.createdAt is string;
       allow read, update, delete: if isValidId(orderId) && isAdmin();
     }
   }

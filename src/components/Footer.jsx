@@ -33,11 +33,17 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl overflow-hidden shadow-xs border border-[#F4E4DE] bg-white shrink-0 flex items-center justify-center p-0.5">
-                <img 
-                  src="/assets/aistudio/Golden_Crowned_R_Emblem_44ae7f4a.png" 
-                  alt="Royal Aesthetic & Laser Clinic Logo" 
-                  className="w-full h-full object-contain"
-                />
+                <picture>
+                  <source srcSet="/assets/aistudio/Golden_Crowned_R_Emblem_44ae7f4a.webp" type="image/webp" />
+                  <img 
+                    src="/assets/aistudio/Golden_Crowned_R_Emblem_44ae7f4a.png" 
+                    alt="Royal Aesthetic & Laser Clinic Logo" 
+                    width="40"
+                    height="40"
+                    loading="lazy"
+                    className="w-full h-full object-contain"
+                  />
+                </picture>
               </div>
               <div>
                 <h3 className="font-serif text-lg font-semibold text-[#3A3A3A] leading-tight">

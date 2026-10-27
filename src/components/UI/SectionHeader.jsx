@@ -6,8 +6,10 @@ export const SectionHeader = ({
   subtitle,
   centered = true,
   className = '',
-  action
+  action,
+  as = 'h2'
 }) => {
+  const HeadingTag = as;
   return (
     <div className={`mb-8 sm:mb-12 ${centered ? 'text-center mx-auto max-w-2xl' : 'text-start'} ${className}`}>
       {eyebrow && (
@@ -15,9 +17,9 @@ export const SectionHeader = ({
           {eyebrow}
         </span>
       )}
-      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#3A3A3A] font-normal tracking-tight">
+      <HeadingTag className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#3A3A3A] font-normal tracking-tight">
         {title}
-      </h2>
+      </HeadingTag>
       {subtitle && (
         <p className="mt-3 text-sm sm:text-base text-[#6B5B55] leading-relaxed">
           {subtitle}

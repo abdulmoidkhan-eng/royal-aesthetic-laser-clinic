@@ -105,6 +105,7 @@ export const ServicesPage = () => {
     <div className="min-h-screen bg-white py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
+          as="h1"
           eyebrow={isRTL ? "ہماری کلینیکل خدمات" : "Doctor-Performed Treatments"}
           title={isRTL ? "جلد اور لیزر کے تمام طریقہ علاج" : "Complete Aesthetic, Laser & Hair Solutions"}
           subtitle={isRTL
@@ -187,7 +188,7 @@ export const ServicesPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href={getWhatsAppLink(`Doctor consultation inquiry regarding: ${currentQuery || "General Skin Inquiry"}`)}
+                href={buildWhatsAppLink(`Doctor consultation inquiry regarding: ${currentQuery || "General Skin Inquiry"}`)}
                 target="_blank"
                 rel="noopener noreferrer"
               >

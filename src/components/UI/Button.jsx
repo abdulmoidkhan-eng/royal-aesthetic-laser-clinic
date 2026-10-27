@@ -12,7 +12,7 @@ export const Button = ({
   iconPosition = 'start',
   ...props
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#D9A38F] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none";
+  const baseStyles = "inline-flex items-center justify-center font-medium min-h-[44px] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#D9A38F] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none";
 
   const sizeStyles = {
     sm: "text-xs px-3 py-1.5 rounded-lg gap-1.5",

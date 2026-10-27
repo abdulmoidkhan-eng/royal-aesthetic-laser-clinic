@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext.jsx';
 import { CartProvider } from './context/CartContext.jsx';
@@ -9,19 +9,18 @@ import FloatingWhatsApp from './components/FloatingWhatsApp.jsx';
 import OffersBanner from './components/OffersBanner.jsx';
 import RouteSEO from './components/RouteSEO.jsx';
 
-// Pages
+// Pages - Immediate load for homepage, code-split lazy load for subpages
 import HomePage from './pages/HomePage.jsx';
-import ServicesPage from './pages/ServicesPage.jsx';
-import ServiceDetailPage from './pages/ServiceDetailPage.jsx';
-import ShopPage from './pages/ShopPage.jsx';
-import ProductDetailPage from './pages/ProductDetailPage.jsx';
-import CartPage from './pages/CartPage.jsx';
-import CheckoutPage from './pages/CheckoutPage.jsx';
-import OrderConfirmationPage from './pages/OrderConfirmationPage.jsx';
-import GalleryPage from './pages/GalleryPage.jsx';
-import ReviewsPage from './pages/ReviewsPage.jsx';
-import ContactPage from './pages/ContactPage.jsx';
-import AdminPage from './pages/AdminPage.jsx';
+const ServicesPage = lazy(() => import('./pages/ServicesPage.jsx'));
+const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage.jsx'));
+const ShopPage = lazy(() => import('./pages/ShopPage.jsx'));
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage.jsx'));
+const CartPage = lazy(() => import('./pages/CartPage.jsx'));
+const CheckoutPage = lazy(() => import('./pages/CheckoutPage.jsx'));
+const OrderConfirmationPage = lazy(() => import('./pages/OrderConfirmationPage.jsx'));
+const ReviewsPage = lazy(() => import('./pages/ReviewsPage.jsx'));
+const ContactPage = lazy(() => import('./pages/ContactPage.jsx'));
+const AdminPage = lazy(() => import('./pages/AdminPage.jsx'));
 
 // Scroll to top helper on route change
 function ScrollToTop() {
@@ -42,32 +41,40 @@ export default function App() {
           <BrowserRouter>
             <ScrollToTop />
             <RouteSEO />
-            <div className="flex flex-col min-h-screen selection:bg-[#F4E4DE] selection:text-[#3A3A3A]">
+            <div className="flex flex-col min-h-screen overflow-x-hidden selection:bg-[#F4E4DE] selection:text-[#3A3A3A]">
               <OffersBanner />
               <Header />
               <main className="flex-1">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/services" element={<ServicesPage />} />
-                <Route path="/services/:id" element={<ServiceDetailPage />} />
-                <Route path="/shop" element={<ShopPage />} />
-                <Route path="/product/:id" element={<ProductDetailPage />} />
-                <Route path="/cart" element={<CartPage />} />
-                <Route path="/checkout" element={<CheckoutPage />} />
-                <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
-                <Route path="/gallery" element={<Navigate to="/services" replace />} />
-                <Route path="/reviews" element={<ReviewsPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/admin" element={<AdminPage />} />
-                <Route path="*" element={<HomePage />} />
-              </Routes>
-            </main>
-            <Footer />
-            <FloatingWhatsApp />
-          </div>
-        </BrowserRouter>
-      </CartProvider>
-    </AdminAuthProvider>
-  </LanguageProvider>
+                <Suspense
+                  fallback={
+                    <div className="min-h-[50vh] flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-full border-2 border-[#D9A38F] border-t-transparent animate-spin" />
+                    </div>
+                  }
+                >
+                  <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/services" element={<ServicesPage />} />
+                    <Route path="/services/:id" element={<ServiceDetailPage />} />
+                    <Route path="/shop" element={<ShopPage />} />
+                    <Route path="/product/:id" element={<ProductDetailPage />} />
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route path="/checkout" element={<CheckoutPage />} />
+                    <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+                    <Route path="/gallery" element={<Navigate to="/services" replace />} />
+                    <Route path="/reviews" element={<ReviewsPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/admin" element={<AdminPage />} />
+                    <Route path="*" element={<HomePage />} />
+                  </Routes>
+                </Suspense>
+              </main>
+              <Footer />
+              <FloatingWhatsApp />
+            </div>
+          </BrowserRouter>
+        </CartProvider>
+      </AdminAuthProvider>
+    </LanguageProvider>
   );
 }

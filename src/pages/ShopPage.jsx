@@ -63,6 +63,7 @@ export const ShopPage = () => {
     <div className="min-h-screen bg-white py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
+          as="h1"
           eyebrow={isRTL ? "کلینیکل ڈسپنسری" : "Doctor Recommended Skincare"}
           title={isRTL ? "رائل کلینک اسکن شاپ" : "Medical Skincare Dispensary"}
           subtitle={isRTL

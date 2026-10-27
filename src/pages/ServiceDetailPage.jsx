@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { 
   Clock, Calendar, ShieldCheck, ArrowLeft, ArrowRight, 
-  CheckCircle2, MessageCircle, AlertCircle, MapPin, Sparkles 
+  CheckCircle2, MessageCircle, AlertCircle, MapPin, Sparkles, HelpCircle 
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { getServiceById } from '../firebase/servicesService.js';
 import { SEED_SERVICES } from '../data/seedServices.js';
+import { SERVICE_FAQS } from '../data/serviceFaqs.js';
 import { CLINIC_INFO } from '../data/clinicInfo.js';
 import { buildWhatsAppLink, getAppointmentBookingMessage } from '../utils/whatsapp.js';
 import Button from '../components/UI/Button.jsx';
@@ -65,6 +66,7 @@ export const ServiceDetailPage = () => {
   const priceNote = getLocalized(service?.priceNote);
   const branchNote = getLocalized(service?.branchNote);
   const hasPrice = typeof service?.price === 'number' && service.price > 0;
+  const faqs = service?.id ? SERVICE_FAQS[service.id] : null;
 
   const handleBookAppointment = () => {
     const msg = getAppointmentBookingMessage(name, language);
@@ -92,7 +94,9 @@ export const ServiceDetailPage = () => {
             <div className="aspect-[21/9] sm:aspect-[21/8] w-full rounded-2xl overflow-hidden mb-6 bg-neutral-100 border border-[#F4E4DE]">
               <img
                 src={service.image}
-                alt={name || "Clinical Service"}
+                alt={isRTL ? `${name} - طریقہ علاج، رائل ایستھیٹک کلینک تھانہ مالاکنڈ` : `${name} - Clinical Aesthetic Procedure at Royal Aesthetic Clinic Malakand`}
+                width="1200"
+                height="480"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -190,14 +194,47 @@ export const ServiceDetailPage = () => {
         {/* Detailed Clinical Explanation */}
         <div className="mt-10 grid grid-cols-1 gap-6">
           <Card className="p-6 sm:p-8">
-            <h3 className="font-serif text-xl font-semibold text-[#3A3A3A] mb-3">
+            <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#3A3A3A] mb-3">
               {isRTL ? "طبی طریقہ کار اور علاج کے مراحل" : "Comprehensive Clinical Overview"}
-            </h3>
+            </h2>
             <p className="text-sm sm:text-base text-[#6B5B55] leading-relaxed whitespace-pre-line">
               {longDescription}
             </p>
           </Card>
         </div>
+
+        {/* Short FAQ Section */}
+        {faqs && faqs.length > 0 && (
+          <div className="mt-10">
+            <div className="mb-6">
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#D9A38F] block mb-1">
+                {isRTL ? "عام معلوماتی رہنمائی" : "General Information"}
+              </span>
+              <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#3A3A3A]">
+                {isRTL ? "اکثر پوچھے جانے والے سوالات" : "Frequently Asked Questions"}
+              </h2>
+              <p className="text-xs text-[#6B5B55] mt-1">
+                {isRTL 
+                  ? "یہ معلومات صرف عام آگاہی کے لیے ہیں۔ کسی خاص نتیجے کی ضمانت نہیں، نتائج ہر مریض کی جلد اور صحت کے مطابق مختلف ہو سکتے ہیں۔"
+                  : "General educational information only. No guaranteed results. Outcomes vary based on individual biological factors."}
+              </p>
+            </div>
+
+            <div className="space-y-3 sm:space-y-4">
+              {faqs.map((faq, idx) => (
+                <Card key={idx} className="p-5 border border-[#F4E4DE]">
+                  <h3 className="font-serif text-base sm:text-lg font-semibold text-[#3A3A3A] mb-2 flex items-start gap-2">
+                    <span className="text-[#D9A38F] font-bold shrink-0">Q{idx + 1}:</span>
+                    <span>{isRTL ? faq.qUr : faq.qEn}</span>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#6B5B55] leading-relaxed ps-5 border-s-2 border-[#D9A38F]/30 ms-1">
+                    {isRTL ? faq.aUr : faq.aEn}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Clinical Disclaimer */}
         <div className="mt-8 p-5 rounded-2xl bg-[#FBF3F0] border border-[#F4E4DE] flex items-start gap-3 text-xs text-[#6B5B55]">

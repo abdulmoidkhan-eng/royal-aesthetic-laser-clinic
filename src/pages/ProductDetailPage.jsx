@@ -104,7 +104,9 @@ export const ProductDetailPage = () => {
             <div className="bg-[#FBF3F0] rounded-3xl p-6 flex items-center justify-center border border-[#F4E4DE] relative aspect-square overflow-hidden">
               <img
                 src={images[selectedImageIndex] || images[0]}
-                alt={name || "Skincare Product"}
+                alt={isRTL ? `${name} - رائل کلینک اسکن کیئر ڈسپنسری` : `${name} - Physician Recommended Skincare at Royal Aesthetic Clinic`}
+                width="600"
+                height="600"
                 className={`max-h-96 w-auto object-contain rounded-2xl shadow-sm transition-all duration-300 ${
                   !isAvailable ? 'grayscale opacity-75' : ''
                 }`}

@@ -23,7 +23,9 @@
   font-family: var(--font-urdu), var(--font-sans);
 }
 
-/* Smooth scrolling */
-html {
+/* Smooth scrolling & zero horizontal overflow */
+html, body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
