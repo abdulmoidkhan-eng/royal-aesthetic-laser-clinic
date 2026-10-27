@@ -223,7 +223,7 @@ export const HomePage = () => {
             title={isRTL ? "کلینک کے اہم علاج" : "Specialized Aesthetic & Laser Services"}
             subtitle={isRTL
               ? "بین الاقوامی معیار کی لیزر مشینوں اور ماہر معالج کے ہاتھوں محفوظ علاج۔"
-              : "Doctor-performed procedures in Thana, Malakand (Hair Transplant at Islamabad branch)."}
+              : "Doctor-performed procedures in Thana, Malakand."}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

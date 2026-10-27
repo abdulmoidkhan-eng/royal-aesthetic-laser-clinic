@@ -109,8 +109,8 @@ export const ServicesPage = () => {
           eyebrow={isRTL ? "ہماری کلینیکل خدمات" : "Doctor-Performed Treatments"}
           title={isRTL ? "جلد اور لیزر کے تمام طریقہ علاج" : "Complete Aesthetic, Laser & Hair Solutions"}
           subtitle={isRTL
-            ? "تھانہ مالاکنڈ کلینک میں تمام جدید ترین طریقہ علاج (ہیئر ٹرانسپلانٹ سرجری ہماری اسلام آباد برانچ میں)۔"
-            : "Conducted under medical protocols in Thana, Malakand. Hair Transplant surgeries conducted at our specialized Islamabad branch."}
+            ? "تھانہ مالاکنڈ کلینک میں تمام جدید ترین طریقہ علاج۔"
+            : "Conducted under medical protocols in Thana, Malakand."}
         />
 
         {/* Concern Search in Services Page */}
