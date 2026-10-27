@@ -1,0 +1,73 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Admin authentication verification strictly matching the designated clinic administrator
+    function isAdmin() {
+      return request.auth != null &&
+        request.auth.token.email != null &&
+        request.auth.token.email.lower() == 'abdulshalmani123@gmail.com' &&
+        request.auth.token.email_verified == true;
+    }
+
+    // Services collection: public read for active treatments, write restricted to admin
+    match /services/{serviceId} {
+      allow get, list: if isValidId(serviceId);
+      allow write: if isValidId(serviceId) && isAdmin();
+    }
+
+    // Products collection: public read for skincare dispensary, write restricted to admin
+    match /products/{productId} {
+      allow get, list: if isValidId(productId);
+      allow write: if isValidId(productId) && isAdmin();
+    }
+
+    // Site settings: public read for clinic timings & payment instructions, write restricted to admin
+    match /settings/{settingId} {
+      allow get, list: if isValidId(settingId);
+      allow write: if isValidId(settingId) && isAdmin();
+    }
+
+    // Gallery before & after: public read, write restricted to admin
+    match /gallery/{galleryId} {
+      allow get, list: if isValidId(galleryId);
+      allow write: if isValidId(galleryId) && isAdmin();
+    }
+
+    // Patient reviews: public read, write restricted to admin
+    match /reviews/{reviewId} {
+      allow get, list: if isValidId(reviewId);
+      allow write: if isValidId(reviewId) && isAdmin();
+    }
+
+    // Promotional offer banners: public read, write restricted to admin
+    match /banners/{bannerId} {
+      allow get, list: if isValidId(bannerId);
+      allow write: if isValidId(bannerId) && isAdmin();
+    }
+    match /banner/{bannerId} {
+      allow get, list: if isValidId(bannerId);
+      allow write: if isValidId(bannerId) && isAdmin();
+    }
+
+    // Orders collection:
+    // Visitors can ONLY create orders with valid structure and initial pending status.
+    // Visitors CANNOT read, list, update, or delete orders.
+    // Only the verified clinic admin can read, list, update, or delete orders.
+    match /orders/{orderId} {
+      allow create: if isValidId(orderId) &&
+        request.resource.data.orderNumber is string &&
+        request.resource.data.transactionId is string &&
+        request.resource.data.status == "Pending payment verification";
+      allow read, update, delete: if isValidId(orderId) && isAdmin();
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Royal Aesthetic & Laser Clinic",
+  "description": "Bilingual aesthetic, laser, and skin care clinic in Malakand, Pakistan offering specialized treatments, WhatsApp booking, and skincare products.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

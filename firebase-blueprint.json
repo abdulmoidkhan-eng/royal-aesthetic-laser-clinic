@@ -1,0 +1,231 @@
+{
+  "entities": {
+    "Service": {
+      "title": "Service",
+      "description": "Clinical aesthetic and laser services offered by Royal Aesthetic & Laser Clinic",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "object",
+          "description": "Bilingual name containing en and ur fields"
+        },
+        "shortDescription": {
+          "type": "object",
+          "description": "Bilingual short summary for cards and search snippets"
+        },
+        "longDescription": {
+          "type": "object",
+          "description": "Bilingual full clinical explanation and procedure details"
+        },
+        "duration": {
+          "type": "string",
+          "description": "Optional treatment duration in minutes or sessions"
+        },
+        "price": {
+          "type": "number",
+          "description": "Optional treatment price in PKR, hidden if 0 or omitted"
+        },
+        "priceNote": {
+          "type": "object",
+          "description": "Optional localized price notes"
+        },
+        "image": {
+          "type": "string",
+          "description": "Image URL for treatment thumbnail and banner"
+        },
+        "keywords": {
+          "type": "array",
+          "description": "Keywords array including English, Urdu, and Roman Urdu"
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Whether service is published and searchable"
+        },
+        "branchNote": {
+          "type": "object",
+          "description": "Optional branch designation, e.g. for Hair Transplant at Islamabad branch"
+        },
+        "category": {
+          "type": "string",
+          "description": "Category identifier for filtering"
+        }
+      },
+      "required": ["name", "shortDescription", "longDescription", "active", "keywords"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Skincare product item sold in the dispensary",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "object",
+          "description": "Bilingual product name"
+        },
+        "description": {
+          "type": "object",
+          "description": "Bilingual detailed description"
+        },
+        "price": {
+          "type": "number",
+          "description": "Price in PKR. 0 means price to be set by admin"
+        },
+        "images": {
+          "type": "array",
+          "description": "Array of product image URLs"
+        },
+        "category": {
+          "type": "string",
+          "description": "Product category: Facewash, Sunblock, Serum"
+        },
+        "inStock": {
+          "type": "boolean",
+          "description": "Whether product is in stock"
+        }
+      },
+      "required": ["name", "description", "category", "inStock"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Guest customer skincare purchase order",
+      "type": "object",
+      "properties": {
+        "orderNumber": {
+          "type": "string",
+          "description": "Unique clinic order identifier e.g. ROYAL-10492"
+        },
+        "customer": {
+          "type": "object",
+          "description": "Customer information (fullName, phone, city, address, notes)"
+        },
+        "items": {
+          "type": "array",
+          "description": "List of ordered products and quantities"
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "Total amount in PKR"
+        },
+        "delivery": {
+          "type": "string",
+          "description": "Delivery type: Free delivery all over Pakistan"
+        },
+        "paymentMethod": {
+          "type": "string",
+          "description": "Selected payment method: Easypaisa, JazzCash, Bank Transfer"
+        },
+        "transactionId": {
+          "type": "string",
+          "description": "Customer provided transaction / Trx ID from payment receipt"
+        },
+        "screenshotUrl": {
+          "type": "string",
+          "description": "Optional uploaded payment proof screenshot"
+        },
+        "status": {
+          "type": "string",
+          "description": "Order status, initialized to Pending payment verification"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the order was submitted"
+        }
+      },
+      "required": ["orderNumber", "customer", "items", "transactionId", "status", "createdAt"]
+    },
+    "Setting": {
+      "title": "Setting",
+      "description": "Store configuration, clinic timings, contact information, and payment method details",
+      "type": "object",
+      "properties": {
+        "easypaisa": {
+          "type": "object",
+          "description": "Easypaisa account title and number"
+        },
+        "jazzcash": {
+          "type": "object",
+          "description": "JazzCash account title and number"
+        },
+        "bankTransfer": {
+          "type": "object",
+          "description": "Bank account details"
+        },
+        "contact": {
+          "type": "object",
+          "description": "Clinic contact phone, email, whatsapp, and location coordinates"
+        },
+        "timings": {
+          "type": "object",
+          "description": "Clinic operational timings and off days in English and Urdu"
+        },
+        "socials": {
+          "type": "object",
+          "description": "Social links (Instagram, Facebook, TikTok)"
+        }
+      }
+    },
+    "GalleryItem": {
+      "title": "GalleryItem",
+      "description": "Clinical treatment before/after photo case or clinic facility showcase",
+      "type": "object",
+      "properties": {
+        "title": { "type": "object", "description": "Bilingual case title" },
+        "treatment": { "type": "string", "description": "Treatment identifier" },
+        "beforeUrl": { "type": "string", "description": "Before image URL" },
+        "afterUrl": { "type": "string", "description": "After image URL" },
+        "sessions": { "type": "string", "description": "Number of treatment sessions" }
+      }
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Verified patient clinical review and rating",
+      "type": "object",
+      "properties": {
+        "patientName": { "type": "object", "description": "Bilingual patient display name" },
+        "procedure": { "type": "object", "description": "Procedure undertaken" },
+        "rating": { "type": "number", "description": "Rating score 1-5" },
+        "comment": { "type": "object", "description": "Review text in EN and UR" },
+        "date": { "type": "string", "description": "Review date" }
+      }
+    },
+    "Banner": {
+      "title": "Banner",
+      "description": "Promotional special offer banner and announcements",
+      "type": "object",
+      "properties": {
+        "text": { "type": "object", "description": "Bilingual announcement text" },
+        "link": { "type": "string", "description": "Link destination" },
+        "active": { "type": "boolean", "description": "Whether banner is shown" }
+      }
+    }
+  },
+  "firestore": {
+    "/services/{serviceId}": {
+      "schema": "Service",
+      "description": "Catalog of aesthetic, laser, and clinical treatments"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Dispensary skincare product catalog"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer order records awaiting verification"
+    },
+    "/settings/{settingId}": {
+      "schema": "Setting",
+      "description": "Public site configurations, clinic hours, and payment accounts"
+    },
+    "/gallery/{galleryId}": {
+      "schema": "GalleryItem",
+      "description": "Clinical before and after results"
+    },
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Verified patient feedback and testimonials"
+    },
+    "/banners/{bannerId}": {
+      "schema": "Banner",
+      "description": "Promotional offer announcement banners"
+    }
+  }
+}
