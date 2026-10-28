@@ -1,0 +1,202 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DataCatalog",
+  "name": "Royal Aesthetic & Laser Clinic - Clinical Services & Product Catalog",
+  "description": "Structured catalog of physician-supervised laser treatments, clinical aesthetic procedures, and physician-dispensed skincare products at Royal Aesthetic & Laser Clinic in Thana, Malakand, Pakistan.",
+  "url": "https://royalaestheticlaserclinic.netlify.app/ai-catalog.json",
+  "provider": {
+    "@type": ["MedicalClinic", "LocalBusiness"],
+    "name": "Royal Aesthetic & Laser Clinic",
+    "url": "https://royalaestheticlaserclinic.netlify.app",
+    "telephone": "+92 347 9305057",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Pul Chowki, opposite Meeral Restaurant",
+      "addressLocality": "Thana",
+      "addressRegion": "Malakand, Khyber Pakhtunkhwa",
+      "addressCountry": "PK"
+    }
+  },
+  "dataset": [
+    {
+      "@type": "ItemList",
+      "name": "Clinical Aesthetic & Medical Laser Procedures",
+      "numberOfItems": 10,
+      "itemListElement": [
+        {
+          "@type": "MedicalProcedure",
+          "position": 1,
+          "name": "Laser Hair Reduction",
+          "description": "Painless triple-wavelength diode laser hair reduction with contact sapphire ice cooling.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/services/laser-hair-reduction",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_b01476c1.webp"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "position": 2,
+          "name": "HydraFacial Clinical Glow",
+          "description": "7-step medical-grade hydradermabrasion, painless vacuum vortex extraction, and peptide infusion.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/services/hydrafacial-glow",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_7d9a33f3.webp"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "position": 3,
+          "name": "Carbon Laser Peel (Hollywood Peel)",
+          "description": "Q-switched Nd:YAG laser carbon peel for pore shrinkage, sebum reduction, and instant glow.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/services/carbon-laser-peel",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_efbe3dec.webp"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "position": 4,
+          "name": "Acne & Scar Microneedling",
+          "description": "Clinical microneedling with growth factors for atrophic scar remodeling and collagen induction.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/services/acne-scar-microneedling",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_fc067fda.webp"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "position": 5,
+          "name": "Hair Loss PRP Biotherapy",
+          "description": "Autologous platelet-rich plasma scalp biotherapy to stimulate dormant hair roots.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/services/hair-loss-prp",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_63234989.webp"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "position": 6,
+          "name": "Face PRP Vampire Facial",
+          "description": "Platelet-rich plasma facial micro-infusion for natural cellular rejuvenation.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/services/face-prp-vampire-facial",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_aee18d43.webp"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "position": 7,
+          "name": "Melasma & Pigmentation Laser Toning",
+          "description": "Q-switched laser toning targeting stubborn hormonal melasma and dermal pigmentation.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/services/melasma-pigmentation-toning",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_85d339f4.webp"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "position": 8,
+          "name": "Skin Brightening Micro-Infusion",
+          "description": "Targeted clinical infusion of glutathione and antioxidant vitamins for dull, uneven skin tone.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/services/skin-brightening-infusion",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_8eec3a59.webp"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "position": 9,
+          "name": "Post-Acne Erythema & Redness Care",
+          "description": "Calming vascular treatments and soothing protocols for post-inflammatory redness.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/services/post-acne-erythema",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_bb8a7161.webp"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "position": 10,
+          "name": "Fine Lines & Anti-Aging Care",
+          "description": "Physician-directed wrinkle prevention, medical-grade peptides, and skin tightening.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/services/anti-aging-wrinkles",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_b01476c1.webp"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Physician-Dispensed Skincare Dispensary",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {
+          "@type": "Product",
+          "position": 1,
+          "name": "Oil Control Facewash (Acne & Oil Control)",
+          "description": "Clinical facewash formulated with 2% Salicylic Acid and Tea Tree Oil to dissolve sebum, unclog pores, and prevent breakouts.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/product/oil-control-facewash",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_ad8c5e55.webp",
+          "category": "Cleanser",
+          "offers": {
+            "@type": "Offer",
+            "price": "1200",
+            "priceCurrency": "PKR",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "MedicalClinic",
+              "name": "Royal Aesthetic & Laser Clinic"
+            }
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 2,
+          "name": "U-Veil Forte Sunblock SPF 60",
+          "description": "High-potency broad-spectrum sunscreen protecting against UVA/UVB photo-damage with invisible non-whitening finish.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/product/uveil-forte-sunblock-spf60",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_1ffc2606.webp",
+          "category": "Sun Protection",
+          "offers": {
+            "@type": "Offer",
+            "price": "1450",
+            "priceCurrency": "PKR",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "MedicalClinic",
+              "name": "Royal Aesthetic & Laser Clinic"
+            }
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 3,
+          "name": "Solotan Sunblock SPF 100",
+          "description": "Maximum clinical photo-protection cream specifically indicated for melasma, post-laser care, and extreme UV defense.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/product/solotan-sunblock-spf100",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_dc2bd778.webp",
+          "category": "Sun Protection",
+          "offers": {
+            "@type": "Offer",
+            "price": "1850",
+            "priceCurrency": "PKR",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "MedicalClinic",
+              "name": "Royal Aesthetic & Laser Clinic"
+            }
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 4,
+          "name": "VeniceLL Vitamin C 20% Brightening Serum",
+          "description": "Physician-recommended antioxidant serum with pure L-Ascorbic Acid, Ferulic Acid, and Hyaluronic Acid for brightening and collagen stimulation.",
+          "url": "https://royalaestheticlaserclinic.netlify.app/product/venicell-vitamin-c-serum",
+          "image": "https://royalaestheticlaserclinic.netlify.app/assets/aistudio/image_a56795cc.webp",
+          "category": "Serum",
+          "offers": {
+            "@type": "Offer",
+            "price": "2400",
+            "priceCurrency": "PKR",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "MedicalClinic",
+              "name": "Royal Aesthetic & Laser Clinic"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

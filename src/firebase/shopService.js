@@ -2,7 +2,6 @@ import {
   collection, doc, getDoc, getDocs, setDoc, query, where, addDoc 
 } from 'firebase/firestore';
 import { db } from './config.js';
-import { handleFirestoreError, OperationType } from './errorHandler.js';
 import { SEED_PRODUCTS, DEFAULT_PAYMENT_SETTINGS } from '../data/seedProducts.js';
 
 const PRODUCTS_COLLECTION = 'products';

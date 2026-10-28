@@ -7,16 +7,16 @@
   --color-royal-cream: #F3EEE5;
   --color-royal-gold: #C5A46D;
   --color-royal-gold-light: #E2D3B8;
-  --color-royal-gold-dark: #9E7F47;
+  --color-royal-gold-dark: #876527;
   --color-royal-charcoal: #262626;
-  --color-royal-gray: #77716A;
+  --color-royal-gray: #5A554E;
   --color-royal-border: #E8E2D8;
 
   /* Legacy aliases for backward compatibility */
   --color-royal-blush: #F3EEE5;
   --color-royal-blush-light: #FAF8F3;
   --color-royal-rose: #C5A46D;
-  --color-royal-muted: #77716A;
+  --color-royal-muted: #5A554E;
 
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -65,4 +65,14 @@ html, body {
   background: linear-gradient(135deg, #A3824E 0%, #C5A46D 50%, #876530 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* WCAG AA Compliance & Keyboard Accessibility */
+.text-\[\#77716A\], .text-royal-muted, .text-royal-gray {
+  color: #5A554E !important;
+}
+
+:focus-visible {
+  outline: 2px solid #876527 !important;
+  outline-offset: 2px;
 }

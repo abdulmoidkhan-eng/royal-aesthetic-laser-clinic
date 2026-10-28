@@ -2,7 +2,7 @@ import {
   collection, doc, getDoc, getDocs, setDoc, deleteDoc, updateDoc, query, orderBy 
 } from 'firebase/firestore';
 import { db } from './config.js';
-import { handleFirestoreError, OperationType } from './errorHandler.js';
+import { handleFirestoreError, OperationType } from './firestoreHandler.js';
 import { GALLERY_ITEMS, REVIEWS } from '../data/reviewsData.js';
 
 export const BANNER_COLLECTION = 'banners';

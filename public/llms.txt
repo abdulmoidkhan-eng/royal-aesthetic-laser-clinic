@@ -1,0 +1,40 @@
+# Royal Aesthetic & Laser Clinic
+
+> Doctor-supervised medical aesthetics, laser hair reduction, and clinical skincare dispensary in Thana, Malakand, Pakistan.
+
+## About the Clinic
+Royal Aesthetic & Laser Clinic provides qualified physician-directed cosmetic dermatology and advanced medical laser procedures in Thana, Malakand, Khyber Pakhtunkhwa, Pakistan. The clinic delivers certified, non-surgical aesthetic protocols, pain-free laser technology, and physician-dispensed skincare.
+
+- Canonical URL: https://royalaestheticlaserclinic.netlify.app/
+- Physical Location: Pul Chowki, opposite Meeral Restaurant, Thana, Malakand, Khyber Pakhtunkhwa, Pakistan
+- Google Maps: https://maps.app.goo.gl/MQF1gR36KicZYmhu5
+- Operating Hours: Saturday to Thursday, 11:00 AM – 5:00 PM PKT (Closed Friday)
+- WhatsApp Appointment & Consultation: +92 347 9305057
+- Direct Booking Link: https://wa.me/923479305057
+
+## Doctor-Supervised Clinical Procedures
+- [Laser Hair Reduction](https://royalaestheticlaserclinic.netlify.app/services/laser-hair-reduction): Painless triple-wavelength diode laser with sapphire contact cooling for face, underarms, arms, legs, and full body.
+- [HydraFacial Clinical Glow](https://royalaestheticlaserclinic.netlify.app/services/hydrafacial-glow): 7-step medical-grade hydradermabrasion, painless vacuum vortex pore extraction, and peptide hydration.
+- [Carbon Laser Peel (Hollywood Peel)](https://royalaestheticlaserclinic.netlify.app/services/carbon-laser-peel): Q-switched Nd:YAG laser exfoliation with liquid carbon lotion for pore tightening and oil control.
+- [Acne & Scar Microneedling](https://royalaestheticlaserclinic.netlify.app/services/acne-scar-microneedling): Medical microneedling with targeted growth factors to remodel atrophic acne scars and stimulate collagen.
+- [Hair Loss PRP Biotherapy](https://royalaestheticlaserclinic.netlify.app/services/hair-loss-prp): Autologous platelet-rich plasma therapy to strengthen dormant hair follicles and reverse androgenetic thinning.
+- [Face PRP Vampire Facial](https://royalaestheticlaserclinic.netlify.app/services/face-prp-vampire-facial): Autologous PRP microneedling for micro-circulation, skin firmness, and natural radiance.
+- [Melasma & Pigmentation Toning](https://royalaestheticlaserclinic.netlify.app/services/melasma-pigmentation-toning): Q-switched laser toning targeting dermal melanin without surface downtime.
+- [Skin Brightening Micro-Infusion](https://royalaestheticlaserclinic.netlify.app/services/skin-brightening-infusion): Targeted cocktail of glutathione and vitamin C for dull and sun-damaged complexions.
+- [Post-Acne Erythema & Redness](https://royalaestheticlaserclinic.netlify.app/services/post-acne-erythema): Calming vascular treatments to heal persistent post-inflammatory erythema (PIE).
+- [Fine Lines & Anti-Aging Care](https://royalaestheticlaserclinic.netlify.app/services/anti-aging-wrinkles): Preventative and corrective peptide therapy, botulinum neuromodulation, and skin-tightening care.
+
+## Physician-Dispensed Skincare Dispensary
+- [Oil Control Facewash](https://royalaestheticlaserclinic.netlify.app/product/oil-control-facewash): 150ml deep cleanser with 2% salicylic acid and tea tree oil for acne-prone skin (1,200 PKR).
+- [U-Veil Forte Sunblock SPF 60](https://royalaestheticlaserclinic.netlify.app/product/uveil-forte-sunblock-spf60): 30g non-comedogenic broad-spectrum UVA/UVB cream for daily sun protection (1,450 PKR).
+- [Solotan Sunblock SPF 100](https://royalaestheticlaserclinic.netlify.app/product/solotan-sunblock-spf100): 30g maximum broad-spectrum photo-protection against post-procedure pigmentation and melasma (1,850 PKR).
+- [VeniceLL Vitamin C 20% Brightening Serum](https://royalaestheticlaserclinic.netlify.app/product/venicell-vitamin-c-serum): 30ml pure L-ascorbic acid and hyaluronic acid antioxidant serum for radiant skin (2,400 PKR).
+
+## Verified Public Navigation
+- Homepage: https://royalaestheticlaserclinic.netlify.app/
+- Clinical Treatments: https://royalaestheticlaserclinic.netlify.app/services
+- Skincare Shop: https://royalaestheticlaserclinic.netlify.app/shop
+- Patient Reviews: https://royalaestheticlaserclinic.netlify.app/reviews
+- Contact & Directions: https://royalaestheticlaserclinic.netlify.app/contact
+- XML Sitemap: https://royalaestheticlaserclinic.netlify.app/sitemap.xml
+- AI Catalog: https://royalaestheticlaserclinic.netlify.app/ai-catalog.json

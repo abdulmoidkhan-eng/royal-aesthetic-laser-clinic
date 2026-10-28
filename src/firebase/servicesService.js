@@ -2,7 +2,6 @@ import {
   collection, doc, getDoc, getDocs, setDoc, query, where, getDocFromServer 
 } from 'firebase/firestore';
 import { db } from './config.js';
-import { handleFirestoreError, OperationType } from './errorHandler.js';
 import { SEED_SERVICES } from '../data/seedServices.js';
 
 const SERVICES_COLLECTION = 'services';

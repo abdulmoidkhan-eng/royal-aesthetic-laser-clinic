@@ -2,7 +2,7 @@ import {
   collection, doc, getDoc, getDocs, setDoc, updateDoc, deleteDoc, query, orderBy 
 } from 'firebase/firestore';
 import { db } from './config.js';
-import { handleFirestoreError, OperationType } from './errorHandler.js';
+import { handleFirestoreError, OperationType } from './firestoreHandler.js';
 import { SEED_SERVICES } from '../data/seedServices.js';
 import { SEED_PRODUCTS, DEFAULT_PAYMENT_SETTINGS } from '../data/seedProducts.js';
 import { CLINIC_INFO } from '../data/clinicInfo.js';

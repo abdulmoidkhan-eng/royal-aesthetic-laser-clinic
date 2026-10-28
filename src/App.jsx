@@ -21,12 +21,17 @@ const ReviewsPage = lazy(() => import('./pages/ReviewsPage.jsx'));
 const ContactPage = lazy(() => import('./pages/ContactPage.jsx'));
 const AdminPage = lazy(() => import('./pages/AdminPage.jsx'));
 
-// Scroll to top helper on route change
+// Scroll to top helper on subsequent route change (skips initial mount to prevent forced reflow)
 function ScrollToTop() {
   const { pathname } = useLocation();
+  const isFirstMount = React.useRef(true);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [pathname]);
 
   return null;

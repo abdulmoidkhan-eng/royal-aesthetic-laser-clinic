@@ -7,6 +7,8 @@ Allow: /shop
 Allow: /product/*
 Allow: /reviews
 Allow: /contact
+Allow: /llms.txt
+Allow: /ai-catalog.json
 
 # Disallow private and checkout funnel routes
 Disallow: /admin
