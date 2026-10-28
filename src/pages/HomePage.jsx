@@ -49,8 +49,23 @@ export const HomePage = () => {
         console.warn('Could not load homepage data from Firestore:', err);
       }
     }
-    loadData();
-    return () => { isMounted = false; };
+
+    // Defer network sync to idle time so FCP and LCP render uninterrupted
+    let timerId = null;
+    let idleId = null;
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(() => {
+        loadData();
+      }, { timeout: 2000 });
+    } else {
+      timerId = setTimeout(loadData, 600);
+    }
+
+    return () => {
+      isMounted = false;
+      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+      if (timerId) clearTimeout(timerId);
+    };
   }, []);
 
   const concernChips = [

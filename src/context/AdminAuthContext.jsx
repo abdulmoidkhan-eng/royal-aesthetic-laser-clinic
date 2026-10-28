@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { 
   onAuthStateChanged, signInWithPopup, signOut, GoogleAuthProvider 
 } from 'firebase/auth';
-import { auth } from '../firebase/config.js';
+import { auth } from '../firebase/auth.js';
 import { AUTHORIZED_ADMIN_EMAIL } from '../firebase/adminService.js';
 
 const AdminAuthContext = createContext(null);

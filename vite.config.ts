@@ -15,6 +15,12 @@ export default defineConfig(() => {
       cssCodeSplit: true,
       sourcemap: false,
       minify: 'esbuild',
+      modulePreload: {
+        polyfill: false,
+        resolveDependencies: (filename, deps) => {
+          return deps.filter(dep => !dep.includes('firebase-auth') && !dep.includes('AdminPage'));
+        },
+      },
       rollupOptions: {
         output: {
           manualChunks(id) {

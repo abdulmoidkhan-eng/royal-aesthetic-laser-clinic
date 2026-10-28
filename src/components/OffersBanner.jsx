@@ -27,8 +27,11 @@ export const OffersBanner = () => {
         console.warn('Could not load offers banner:', err);
       }
     }
-    fetchBanner();
-    return () => { isMounted = false; };
+    const timer = setTimeout(fetchBanner, 500);
+    return () => { 
+      isMounted = false; 
+      clearTimeout(timer);
+    };
   }, []);
 
   if (!banner || dismissed) return null;
