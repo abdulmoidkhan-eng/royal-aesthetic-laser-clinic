@@ -13,15 +13,15 @@ export const SectionHeader = ({
   return (
     <div className={`mb-8 sm:mb-12 ${centered ? 'text-center mx-auto max-w-2xl' : 'text-start'} ${className}`}>
       {eyebrow && (
-        <span className="inline-block text-xs uppercase tracking-widest font-semibold text-[#D9A38F] mb-2 px-3 py-1 bg-[#FBF3F0] rounded-full">
+        <span className="inline-block text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium text-[#9E7F47] mb-3 px-3.5 py-1 bg-[#F3EEE5] border border-[#E8E2D8] rounded-full">
           {eyebrow}
         </span>
       )}
-      <HeadingTag className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#3A3A3A] font-normal tracking-tight">
+      <HeadingTag className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#262626] font-normal tracking-tight leading-tight">
         {title}
       </HeadingTag>
       {subtitle && (
-        <p className="mt-3 text-sm sm:text-base text-[#6B5B55] leading-relaxed">
+        <p className="mt-3 text-sm sm:text-base text-[#77716A] leading-relaxed">
           {subtitle}
         </p>
       )}

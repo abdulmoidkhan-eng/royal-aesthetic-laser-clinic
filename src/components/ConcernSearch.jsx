@@ -116,8 +116,8 @@ export const ConcernSearch = ({
     <div ref={containerRef} className={`relative w-full ${isHeader ? 'max-w-xs' : 'max-w-2xl mx-auto'}`}>
       <form onSubmit={handleSubmit} className="relative flex items-center">
         <div className="relative w-full">
-          <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 sm:ps-4 pointer-events-none text-[#6B5B55]">
-            <Search className={`${isHeader ? 'w-4 h-4' : 'w-5 h-5'} text-[#D9A38F]`} />
+          <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 sm:ps-4 pointer-events-none text-[#77716A]">
+            <Search className={`${isHeader ? 'w-4 h-4' : 'w-5 h-5'} text-[#C5A46D]`} />
           </div>
 
           <input
@@ -135,10 +135,10 @@ export const ConcernSearch = ({
                 ? (isRTL ? "مسئلہ تلاش کریں..." : "Search concern...")
                 : (isRTL ? "اپنی جلد کا مسئلہ تلاش کریں، مثلاً ایکنی، لیزر مشین / ہیئر ریڈکشن، مائیکرو نیڈلنگ..." : "Search your skin concern, e.g. acne, Laser Machine / Hair Reduction, microneedling...")
             }
-            className={`w-full rounded-2xl border transition-all text-[#3A3A3A] bg-white placeholder:text-[#6B5B55]/70 focus:outline-none ${
+            className={`w-full rounded-2xl border transition-all text-[#262626] bg-white placeholder:text-[#77716A]/70 focus:outline-none ${
               isHeader
-                ? 'py-2 ps-10 pe-16 text-xs border-[#F4E4DE] focus:border-[#D9A38F]'
-                : 'py-3.5 sm:py-4 ps-11 sm:ps-12 pe-24 sm:pe-28 text-sm sm:text-base border-2 border-[#F4E4DE] focus:border-[#D9A38F] shadow-xs'
+                ? 'py-2 ps-10 pe-16 text-xs border-[#E8E2D8] focus:border-[#C5A46D]'
+                : 'py-3.5 sm:py-4 ps-11 sm:ps-12 pe-24 sm:pe-28 text-sm sm:text-base border-2 border-[#E8E2D8] focus:border-[#C5A46D] shadow-xs'
             }`}
           />
 
@@ -151,7 +151,7 @@ export const ConcernSearch = ({
                   setIsOpen(false);
                   inputRef.current?.focus();
                 }}
-                className="p-1 text-[#6B5B55] hover:text-[#3A3A3A] rounded-full"
+                className="p-1 text-[#77716A] hover:text-[#262626] rounded-full"
                 aria-label="Clear query"
               >
                 <X className="w-4 h-4" />
@@ -172,17 +172,17 @@ export const ConcernSearch = ({
 
       {/* Dropdown Suggestions Menu */}
       {isOpen && query.trim().length >= 1 && (
-        <div className="absolute start-0 end-0 mt-2 bg-white rounded-2xl shadow-xl border border-[#F4E4DE] p-2 text-start z-50 max-h-96 overflow-y-auto animate-in fade-in duration-150">
+        <div className="absolute start-0 end-0 mt-2 bg-white rounded-2xl shadow-xl border border-[#E8E2D8] p-2 text-start z-50 max-h-96 overflow-y-auto animate-in fade-in duration-150">
           {matches.length > 0 ? (
             <div>
-              <div className="text-[11px] font-semibold text-[#6B5B55] px-3 py-1.5 uppercase tracking-wider flex items-center justify-between border-b border-[#F4E4DE]/60 mb-1">
+              <div className="text-[11px] font-semibold text-[#77716A] px-3 py-1.5 uppercase tracking-wider flex items-center justify-between border-b border-[#E8E2D8]/60 mb-1">
                 <span>{isRTL ? "تجویز کردہ علاج" : "Matching Clinical Treatments"}</span>
-                <span className="text-[10px] text-[#D9A38F] font-normal">
+                <span className="text-[10px] text-[#C5A46D] font-normal">
                   {matches.length} {isRTL ? "نتائج" : "available"}
                 </span>
               </div>
 
-              <div className="divide-y divide-[#F4E4DE]/40">
+              <div className="divide-y divide-[#E8E2D8]/40">
                 {matches.map((service, index) => {
                   const isSelected = index === selectedIndex;
                   const name = getLocalized(service.name);
@@ -194,28 +194,28 @@ export const ConcernSearch = ({
                       onClick={() => handleSelectService(service.id)}
                       onMouseEnter={() => setSelectedIndex(index)}
                       className={`flex items-center gap-3 p-2.5 rounded-xl cursor-pointer transition-colors ${
-                        isSelected ? 'bg-[#FBF3F0] text-[#D9A38F]' : 'hover:bg-[#FBF3F0]/60 text-[#3A3A3A]'
+                        isSelected ? 'bg-[#F3EEE5] text-[#C5A46D]' : 'hover:bg-[#F3EEE5]/60 text-[#262626]'
                       }`}
                     >
                       <img
                         src={service.image}
                         alt={name}
-                        className="w-12 h-12 rounded-lg object-cover shrink-0 bg-[#F4E4DE]/40 border border-[#F4E4DE]"
+                        className="w-12 h-12 rounded-lg object-cover shrink-0 bg-[#E8E2D8]/40 border border-[#E8E2D8]"
                       />
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
-                          <p className="text-xs sm:text-sm font-semibold truncate text-[#3A3A3A]">
+                          <p className="text-xs sm:text-sm font-semibold truncate text-[#262626]">
                             {name}
                           </p>
                           {service.price ? (
-                            <span className="text-[11px] font-bold text-[#D9A38F] whitespace-nowrap">
+                            <span className="text-[11px] font-bold text-[#C5A46D] whitespace-nowrap">
                               {service.price.toLocaleString()} PKR
                             </span>
                           ) : null}
                         </div>
 
-                        <p className="text-[11px] text-[#6B5B55] line-clamp-1 mt-0.5">
+                        <p className="text-[11px] text-[#77716A] line-clamp-1 mt-0.5">
                           {shortDesc}
                         </p>
 
@@ -230,11 +230,11 @@ export const ConcernSearch = ({
                 })}
               </div>
 
-              <div className="mt-2 pt-2 border-t border-[#F4E4DE]/60 text-center">
+              <div className="mt-2 pt-2 border-t border-[#E8E2D8]/60 text-center">
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="text-xs font-semibold text-[#D9A38F] hover:underline inline-flex items-center gap-1"
+                  className="text-xs font-semibold text-[#C5A46D] hover:underline inline-flex items-center gap-1"
                 >
                   <span>{isRTL ? `تمام نتائج دیکھیں برائے "${query}"` : `View all results for "${query}"`}</span>
                   {isRTL ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
@@ -244,13 +244,13 @@ export const ConcernSearch = ({
           ) : (
             /* Friendly empty state with WhatsApp CTA button */
             <div className="p-4 sm:p-5 text-center">
-              <div className="w-10 h-10 rounded-full bg-[#FBF3F0] flex items-center justify-center text-[#D9A38F] mx-auto mb-2">
+              <div className="w-10 h-10 rounded-full bg-[#F3EEE5] flex items-center justify-center text-[#C5A46D] mx-auto mb-2">
                 <Sparkles className="w-5 h-5" />
               </div>
-              <p className="font-serif text-sm font-semibold text-[#3A3A3A]">
+              <p className="font-serif text-sm font-semibold text-[#262626]">
                 {isRTL ? "اس مسئلے کے لیے کوئی علاج درج نہیں ملا" : "No matching treatment found"}
               </p>
-              <p className="text-xs text-[#6B5B55] mt-1 max-w-sm mx-auto">
+              <p className="text-xs text-[#77716A] mt-1 max-w-sm mx-auto">
                 {isRTL 
                   ? "ہماری ٹیم آپ کی رہنمائی اور معائنے کے لیے حاضر ہے۔ براہ راست ہمارے ڈاکٹر سے مشورہ کریں:" 
                   : "We treat a wide range of personalized skin concerns. Chat with our clinical coordinator directly:"}

@@ -12,21 +12,21 @@ export const Button = ({
   iconPosition = 'start',
   ...props
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-medium min-h-[44px] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#D9A38F] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none";
+  const baseStyles = "inline-flex items-center justify-center font-medium min-h-[44px] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#C5A46D] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none tracking-wide";
 
   const sizeStyles = {
-    sm: "text-xs px-3 py-1.5 rounded-lg gap-1.5",
-    md: "text-sm px-4 py-2.5 rounded-xl gap-2",
-    lg: "text-base px-6 py-3 rounded-xl gap-2.5"
+    sm: "text-xs px-3.5 py-1.5 rounded-lg gap-1.5",
+    md: "text-sm px-5 py-2.5 rounded-xl gap-2",
+    lg: "text-base px-7 py-3 rounded-xl gap-2.5 font-medium"
   };
 
   const variantStyles = {
-    primary: "bg-[#D9A38F] text-white hover:bg-[#c9917d] active:scale-[0.98] shadow-sm",
-    secondary: "bg-[#F4E4DE] text-[#3A3A3A] hover:bg-[#ebd6cf] active:scale-[0.98]",
-    outline: "border border-[#D9A38F] text-[#3A3A3A] hover:bg-[#FBF3F0] active:scale-[0.98]",
-    ghost: "text-[#3A3A3A] hover:bg-[#FBF3F0] active:bg-[#F4E4DE]",
-    whatsapp: "bg-[#25D366] text-white hover:bg-[#20ba59] active:scale-[0.98] shadow-sm font-semibold",
-    dark: "bg-[#3A3A3A] text-white hover:bg-[#282828] active:scale-[0.98]"
+    primary: "bg-[#C5A46D] text-white hover:bg-[#B3925B] active:scale-[0.98] shadow-xs hover:shadow-md",
+    secondary: "bg-[#F3EEE5] text-[#262626] hover:bg-[#EAE2D3] border border-[#E8E2D8] active:scale-[0.98]",
+    outline: "border border-[#C5A46D] text-[#262626] hover:bg-[#FAF8F3] hover:border-[#B3925B] active:scale-[0.98]",
+    ghost: "text-[#262626] hover:bg-[#F3EEE5] active:bg-[#EAE2D3]",
+    whatsapp: "bg-[#25D366] text-white hover:bg-[#20ba59] active:scale-[0.98] shadow-xs hover:shadow-md font-medium",
+    dark: "bg-[#262626] text-white hover:bg-[#1A1A1A] active:scale-[0.98] shadow-xs"
   };
 
   return (

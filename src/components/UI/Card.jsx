@@ -11,8 +11,8 @@ export const Card = ({
   return (
     <Component
       onClick={onClick}
-      className={`bg-white rounded-2xl border border-[#F4E4DE] p-5 sm:p-6 transition-all duration-200 ${
-        hoverEffect ? 'hover:shadow-md hover:border-[#D9A38F]/50 hover:-translate-y-0.5' : ''
+      className={`bg-white rounded-2xl border border-[#E8E2D8] p-5 sm:p-6 transition-all duration-300 ${
+        hoverEffect ? 'hover:shadow-lg hover:border-[#C5A46D] hover:-translate-y-1' : 'shadow-xs'
       } ${className}`}
       {...props}
     >

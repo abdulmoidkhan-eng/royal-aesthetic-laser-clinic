@@ -61,21 +61,21 @@ export const OffersBanner = () => {
   return (
     <aside 
       aria-label="Promotional Announcement"
-      className="bg-gradient-to-r from-[#F4E4DE] via-[#FBF3F0] to-[#F4E4DE] border-b border-[#D9A38F]/30 text-[#3A3A3A] text-xs sm:text-sm px-4 py-2 transition-all"
+      className="bg-gradient-to-r from-[#F3EEE5] via-[#FAF8F3] to-[#F3EEE5] border-b border-[#E8E2D8] text-[#262626] text-xs sm:text-sm px-4 py-2.5 transition-all"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
         <div className="flex items-center gap-2 flex-1 justify-center text-center flex-wrap">
-          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#D9A38F] text-white shrink-0 shadow-xs">
+          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#C5A46D] text-white shrink-0 shadow-xs">
             <Sparkles className="w-3 h-3" />
           </span>
           
-          <span className="font-medium text-[#3A3A3A]">
+          <span className="font-medium text-[#262626]">
             {text}
           </span>
 
           {banner.endDate && (
-            <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#8C5E50] bg-white/70 px-2 py-0.5 rounded-full border border-[#D9A38F]/20">
-              <Calendar className="w-3 h-3 text-[#D9A38F]" />
+            <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#9E7F47] bg-white/90 px-2.5 py-0.5 rounded-full border border-[#E8E2D8]">
+              <Calendar className="w-3 h-3 text-[#C5A46D]" />
               <span>{isRTL ? `آخری تاریخ: ${banner.endDate}` : `Valid until ${banner.endDate}`}</span>
             </span>
           )}
@@ -84,7 +84,7 @@ export const OffersBanner = () => {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 font-semibold text-[#3A3A3A] underline hover:text-[#D9A38F] transition-colors ms-1.5"
+            className="inline-flex items-center gap-1 font-semibold text-[#262626] underline hover:text-[#C5A46D] transition-colors ms-1.5"
           >
             <span>{actionText}</span>
             {isRTL ? (
@@ -98,7 +98,7 @@ export const OffersBanner = () => {
         <button
           type="button"
           onClick={() => setDismissed(true)}
-          className="p-1 text-[#6B5B55] hover:text-[#3A3A3A] hover:bg-white/50 rounded-md transition-colors shrink-0"
+          className="p-1 text-[#77716A] hover:text-[#262626] hover:bg-white/50 rounded-md transition-colors shrink-0"
           title={isRTL ? "بند کریں" : "Dismiss banner"}
           aria-label="Dismiss banner"
         >

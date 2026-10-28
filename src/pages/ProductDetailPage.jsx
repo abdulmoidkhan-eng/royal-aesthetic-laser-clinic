@@ -12,6 +12,7 @@ import { buildWhatsAppLink } from '../utils/whatsapp.js';
 import Button from '../components/UI/Button.jsx';
 import Card from '../components/UI/Card.jsx';
 import Badge from '../components/UI/Badge.jsx';
+import OptimizedImage from '../components/UI/OptimizedImage.jsx';
 
 export const ProductDetailPage = () => {
   const { id } = useParams();
@@ -46,11 +47,11 @@ export const ProductDetailPage = () => {
 
   if (!product && !loading) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center">
-        <h2 className="font-serif text-2xl text-[#3A3A3A]">
+      <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center bg-[#FAF8F3]">
+        <h2 className="font-serif text-2xl text-[#262626]">
           {isRTL ? "پروڈکٹ نہیں ملا" : "Product Not Found"}
         </h2>
-        <p className="text-sm text-[#6B5B55] mt-2 mb-6">
+        <p className="text-sm text-[#77716A] mt-2 mb-6">
           {isRTL ? "مطلوبہ پروڈکٹ کلینیکل شاپ میں موجود نہیں۔" : "The requested skincare product does not exist in our catalog."}
         </p>
         <Link to="/shop">
@@ -85,32 +86,32 @@ export const ProductDetailPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-10 sm:py-16">
+    <div className="min-h-screen bg-[#FAF8F3] py-10 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
         <div className="mb-6">
           <Link
             to="/shop"
-            className="inline-flex items-center gap-1.5 text-xs text-[#6B5B55] hover:text-[#D9A38F] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-[#77716A] hover:text-[#C5A46D] transition-colors"
           >
             {isRTL ? <ArrowRight className="w-4 h-4" /> : <ArrowLeft className="w-4 h-4" />}
             <span>{isRTL ? "اسکن شاپ پر واپس جائیں" : "Back to Skin Shop"}</span>
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 bg-white p-6 sm:p-10 rounded-3xl border border-[#E8E2D8] shadow-xs">
           {/* Product Images Gallery */}
           <div className="space-y-4">
-            <div className="bg-[#FBF3F0] rounded-3xl p-6 flex items-center justify-center border border-[#F4E4DE] relative aspect-square overflow-hidden">
-              <img
+            <div className="bg-[#F3EEE5] rounded-3xl p-6 flex items-center justify-center border border-[#E8E2D8] relative aspect-square overflow-hidden">
+              <OptimizedImage
                 src={images[selectedImageIndex] || images[0]}
                 alt={isRTL ? `${name} - رائل کلینک اسکن کیئر ڈسپنسری` : `${name} - Physician Recommended Skincare at Royal Aesthetic Clinic`}
-                width="600"
-                height="600"
+                width={600}
+                height={600}
                 className={`max-h-96 w-auto object-contain rounded-2xl shadow-sm transition-all duration-300 ${
                   !isAvailable ? 'grayscale opacity-75' : ''
                 }`}
-                loading="lazy"
+                loading="eager"
               />
 
               {/* Status Badge */}
@@ -135,15 +136,17 @@ export const ProductDetailPage = () => {
                     key={idx}
                     type="button"
                     onClick={() => setSelectedImageIndex(idx)}
-                    className={`w-16 h-16 rounded-xl overflow-hidden border-2 transition-all ${
+                    className={`w-16 h-16 rounded-xl overflow-hidden border-2 transition-all bg-[#F3EEE5] ${
                       selectedImageIndex === idx
-                        ? 'border-[#D9A38F] shadow-xs'
-                        : 'border-[#F4E4DE] opacity-70 hover:opacity-100'
+                        ? 'border-[#C5A46D] shadow-xs ring-2 ring-[#C5A46D]/20'
+                        : 'border-[#E8E2D8] opacity-70 hover:opacity-100'
                     }`}
                   >
-                    <img 
+                    <OptimizedImage 
                       src={img} 
                       alt={`${name || 'Product'} thumbnail ${idx + 1}`} 
+                      width={64}
+                      height={64}
                       className="w-full h-full object-cover" 
                       loading="lazy" 
                     />
@@ -157,13 +160,13 @@ export const ProductDetailPage = () => {
           <div className="flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between gap-2 mb-2">
-                <Badge variant="blush">{product?.category}</Badge>
+                <Badge variant="gold">{product?.category}</Badge>
                 {product?.size && (
-                  <span className="text-xs text-[#6B5B55] font-medium">{product.size}</span>
+                  <span className="text-xs text-[#77716A] font-medium">{product.size}</span>
                 )}
               </div>
 
-              <h1 className="font-serif text-2xl sm:text-3xl text-[#3A3A3A] font-normal leading-snug">
+              <h1 className="font-serif text-2xl sm:text-3xl text-[#262626] font-normal leading-snug">
                 {name}
               </h1>
 
@@ -171,47 +174,47 @@ export const ProductDetailPage = () => {
               <div className="mt-4 flex items-baseline gap-3">
                 {isPriceZero ? (
                   <div>
-                    <span className="font-serif text-2xl font-bold text-[#D9A38F]">
+                    <span className="font-serif text-2xl font-bold text-[#C5A46D]">
                       {isRTL ? "قیمت کا تعین ایڈمن کرے گا" : "Price to be set by admin"}
                     </span>
-                    <p className="text-xs text-[#6B5B55] mt-0.5">
+                    <p className="text-xs text-[#77716A] mt-0.5">
                       {isRTL ? "ایڈمن کی جانب سے قیمت جلد طے کی جائے گی۔" : "Pricing will be updated by clinic admin."}
                     </p>
                   </div>
                 ) : (
-                  <span className="font-serif text-3xl font-semibold text-[#3A3A3A]">
+                  <span className="font-serif text-3xl font-semibold text-[#262626]">
                     {product?.price.toLocaleString()} PKR
                   </span>
                 )}
               </div>
 
               {/* Free delivery badge */}
-              <div className="mt-4 p-3 rounded-xl bg-[#FBF3F0] border border-[#F4E4DE] flex items-center gap-2.5 text-xs text-[#3A3A3A]">
-                <Truck className="w-4 h-4 text-[#D9A38F] shrink-0" />
+              <div className="mt-4 p-3 rounded-xl bg-[#F3EEE5] border border-[#E8E2D8] flex items-center gap-2.5 text-xs text-[#262626]">
+                <Truck className="w-4 h-4 text-[#C5A46D] shrink-0" />
                 <span className="font-medium">
                   {isRTL ? "پورے پاکستان میں مفت ڈیلیوری (Free Delivery)" : "Free delivery all over Pakistan"}
                 </span>
               </div>
 
-              <p className="mt-5 text-sm text-[#6B5B55] leading-relaxed">
+              <p className="mt-5 text-sm text-[#77716A] leading-relaxed">
                 {description}
               </p>
 
               {/* Clinical features */}
-              <div className="mt-6 pt-4 border-t border-[#F4E4DE] space-y-2 text-xs text-[#3A3A3A]">
+              <div className="mt-6 pt-4 border-t border-[#E8E2D8] space-y-2 text-xs text-[#262626]">
                 <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-[#D9A38F]" />
+                  <Check className="w-4 h-4 text-[#C5A46D]" />
                   <span>{isRTL ? "طبی طور پر آزمودہ اور محفوظ اجزاء" : "Dermatologically tested & approved formulas"}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-[#D9A38F]" />
+                  <Check className="w-4 h-4 text-[#C5A46D]" />
                   <span>{isRTL ? "لیزر اور حساس جلد کے بعد استعمال کے لیے موزوں" : "Safe for post-laser & sensitive skin barriers"}</span>
                 </div>
               </div>
             </div>
 
             {/* Quantity Selector & Action Buttons */}
-            <div className="mt-8 pt-6 border-t border-[#F4E4DE] space-y-4">
+            <div className="mt-8 pt-6 border-t border-[#E8E2D8] space-y-4">
               {!isAvailable ? (
                 <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs">
                   <strong className="block font-semibold mb-0.5">
@@ -226,21 +229,21 @@ export const ProductDetailPage = () => {
               ) : (
                 <div className="flex items-center gap-4">
                   {/* Quantity controls */}
-                  <div className="flex items-center border border-[#F4E4DE] rounded-xl bg-white overflow-hidden">
+                  <div className="flex items-center border border-[#E8E2D8] rounded-xl bg-[#FAF8F3] overflow-hidden">
                     <button
                       type="button"
                       onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                      className="px-3.5 py-2.5 text-sm text-[#6B5B55] hover:bg-[#FBF3F0]"
+                      className="px-3.5 py-2.5 text-sm text-[#77716A] hover:bg-[#F3EEE5] transition-colors"
                     >
                       -
                     </button>
-                    <span className="px-4 py-2.5 text-sm font-semibold text-[#3A3A3A]">
+                    <span className="px-4 py-2.5 text-sm font-semibold text-[#262626]">
                       {quantity}
                     </span>
                     <button
                       type="button"
                       onClick={() => setQuantity(q => q + 1)}
-                      className="px-3.5 py-2.5 text-sm text-[#6B5B55] hover:bg-[#FBF3F0]"
+                      className="px-3.5 py-2.5 text-sm text-[#77716A] hover:bg-[#F3EEE5] transition-colors"
                     >
                       +
                     </button>
@@ -269,7 +272,7 @@ export const ProductDetailPage = () => {
                 <span>{isRTL ? "واٹس ایپ پر پروڈکٹ کے بارے میں پوچھیں" : "Inquire / Order via WhatsApp"}</span>
               </Button>
 
-              <div className="flex items-center justify-between text-[11px] text-[#6B5B55] pt-1">
+              <div className="flex items-center justify-between text-[11px] text-[#77716A] pt-1">
                 <span>{isRTL ? "گیسٹ چیک آؤٹ (اکاؤنٹ درکار نہیں)" : "Guest checkout (No account required)"}</span>
                 <span>•</span>
                 <span>{isRTL ? "کوئی کارڈ داخل کرنے کی ضرورت نہیں" : "No card details collected"}</span>

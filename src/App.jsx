@@ -41,14 +41,14 @@ export default function App() {
           <BrowserRouter>
             <ScrollToTop />
             <RouteSEO />
-            <div className="flex flex-col min-h-screen overflow-x-hidden selection:bg-[#F4E4DE] selection:text-[#3A3A3A]">
+            <div className="flex flex-col min-h-screen overflow-x-hidden selection:bg-[#F3EEE5] selection:text-[#262626]">
               <OffersBanner />
               <Header />
               <main className="flex-1">
                 <Suspense
                   fallback={
                     <div className="min-h-[50vh] flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full border-2 border-[#D9A38F] border-t-transparent animate-spin" />
+                      <div className="w-8 h-8 rounded-full border-2 border-[#C5A46D] border-t-transparent animate-spin" />
                     </div>
                   }
                 >

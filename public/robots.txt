@@ -15,4 +15,4 @@ Disallow: /checkout
 Disallow: /order-confirmation
 
 # XML Sitemap location
-Sitemap: https://ais-pre-rtptp4fdgir5nclpt2qwgb-985586865554.asia-southeast1.run.app/sitemap.xml
+Sitemap: https://royalaestheticlaserclinic.netlify.app/sitemap.xml

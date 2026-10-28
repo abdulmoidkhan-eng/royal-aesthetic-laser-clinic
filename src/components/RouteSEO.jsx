@@ -78,7 +78,7 @@ export const RouteSEO = () => {
 
   const siteOrigin = typeof window !== 'undefined' 
     ? window.location.origin 
-    : 'https://ais-pre-rtptp4fdgir5nclpt2qwgb-985586865554.asia-southeast1.run.app';
+    : 'https://royalaestheticlaserclinic.netlify.app';
 
   const defaultImage = `${siteOrigin}/assets/aistudio/Golden_Crowned_R_Emblem_44ae7f4a.png`;
 

@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 // Site URL configuration with fallback
-const SITE_URL = (process.env.SITE_URL || 'https://ais-pre-rtptp4fdgir5nclpt2qwgb-985586865554.asia-southeast1.run.app').replace(/\/+$/, '');
+const SITE_URL = (process.env.SITE_URL || 'https://royalaestheticlaserclinic.netlify.app').replace(/\/+$/, '');
 
 async function generateSitemap() {
   console.log(`[SEO] Generating sitemap.xml for: ${SITE_URL}...`);

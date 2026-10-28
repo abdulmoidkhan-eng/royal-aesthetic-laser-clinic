@@ -13,6 +13,7 @@ import { buildWhatsAppLink, getAppointmentBookingMessage } from '../utils/whatsa
 import Button from '../components/UI/Button.jsx';
 import Card from '../components/UI/Card.jsx';
 import Badge from '../components/UI/Badge.jsx';
+import OptimizedImage from '../components/UI/OptimizedImage.jsx';
 
 export const ServiceDetailPage = () => {
   const { id } = useParams();
@@ -44,11 +45,11 @@ export const ServiceDetailPage = () => {
 
   if (!service && !loading) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center">
-        <h2 className="font-serif text-2xl text-[#3A3A3A]">
+      <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center bg-[#FAF8F3]">
+        <h2 className="font-serif text-2xl text-[#262626]">
           {isRTL ? "علاج نہیں ملا" : "Treatment Not Found"}
         </h2>
-        <p className="text-sm text-[#6B5B55] mt-2 mb-6">
+        <p className="text-sm text-[#77716A] mt-2 mb-6">
           {isRTL ? "مطلوبہ طریقہ علاج فہرست میں دستیاب نہیں۔" : "The requested procedure does not exist in our menu."}
         </p>
         <Link to="/services">
@@ -74,13 +75,13 @@ export const ServiceDetailPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-10 sm:py-16">
+    <div className="min-h-screen bg-[#FAF8F3] py-10 sm:py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation back */}
         <div className="mb-6">
           <Link
             to="/services"
-            className="inline-flex items-center gap-1.5 text-xs text-[#6B5B55] hover:text-[#D9A38F] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-[#77716A] hover:text-[#C5A46D] transition-colors"
           >
             {isRTL ? <ArrowRight className="w-4 h-4" /> : <ArrowLeft className="w-4 h-4" />}
             <span>{isRTL ? "واپس تمام سروسز پر جائیں" : "Back to All Treatments"}</span>
@@ -88,17 +89,17 @@ export const ServiceDetailPage = () => {
         </div>
 
         {/* Hero Card for Service */}
-        <div className="bg-gradient-to-b from-[#FBF3F0] to-white rounded-3xl p-6 sm:p-10 border border-[#F4E4DE] shadow-xs overflow-hidden">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#E8E2D8] shadow-xs overflow-hidden">
           {/* Header image if available */}
           {service?.image && (
-            <div className="aspect-[21/9] sm:aspect-[21/8] w-full rounded-2xl overflow-hidden mb-6 bg-neutral-100 border border-[#F4E4DE]">
-              <img
+            <div className="aspect-[21/9] sm:aspect-[21/8] w-full rounded-2xl overflow-hidden mb-6 bg-[#F3EEE5] border border-[#E8E2D8]">
+              <OptimizedImage
                 src={service.image}
                 alt={isRTL ? `${name} - طریقہ علاج، رائل ایستھیٹک کلینک تھانہ مالاکنڈ` : `${name} - Clinical Aesthetic Procedure at Royal Aesthetic Clinic Malakand`}
-                width="1200"
-                height="480"
+                width={1200}
+                height={480}
                 className="w-full h-full object-cover"
-                loading="lazy"
+                loading="eager"
               />
             </div>
           )}
@@ -106,38 +107,38 @@ export const ServiceDetailPage = () => {
           {/* Badges and duration */}
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="blush">
+              <Badge variant="gold">
                 {isRTL ? "طبی پروٹوکول" : "Clinical Protocol"}
               </Badge>
               {service?.id === 'hair-transplant' && (
-                <span className="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-semibold px-3 py-0.5 rounded-full flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-amber-700" />
+                <span className="bg-[#F3EEE5] text-[#9E7F47] border border-[#E8E2D8] text-xs font-semibold px-3 py-0.5 rounded-full flex items-center gap-1">
+                  <MapPin className="w-3.5 h-3.5 text-[#C5A46D]" />
                   <span>{isRTL ? "اسلام آباد برانچ سرجری" : "Islamabad Branch Surgery"}</span>
                 </span>
               )}
             </div>
 
             {service?.duration && (
-              <span className="text-xs text-[#6B5B55] flex items-center gap-1 font-medium">
-                <Clock className="w-4 h-4 text-[#D9A38F]" />
+              <span className="text-xs text-[#77716A] flex items-center gap-1 font-medium">
+                <Clock className="w-4 h-4 text-[#C5A46D]" />
                 {service.duration}
               </span>
             )}
           </div>
 
-          <h1 className="font-serif text-2xl sm:text-4xl text-[#3A3A3A] font-normal leading-tight">
+          <h1 className="font-serif text-2xl sm:text-4xl text-[#262626] font-normal leading-tight">
             {name}
           </h1>
 
-          {/* Special prominent notice for Hair Transplant at Islamabad branch */}
+          {/* Special notice for Hair Transplant at Islamabad branch */}
           {service?.id === 'hair-transplant' && (
-            <div className="mt-4 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs sm:text-sm text-amber-900 leading-relaxed flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+            <div className="mt-4 p-4 rounded-2xl bg-[#F3EEE5] border border-[#E8E2D8] text-xs sm:text-sm text-[#262626] leading-relaxed flex items-start gap-3">
+              <MapPin className="w-5 h-5 text-[#C5A46D] shrink-0 mt-0.5" />
               <div>
-                <strong className="block text-sm font-semibold mb-0.5">
+                <strong className="block text-sm font-semibold mb-0.5 text-[#262626]">
                   {isRTL ? "اہم طبی و جغرافیائی وضاحت:" : "Important Surgical Location Notice:"}
                 </strong>
-                <p>
+                <p className="text-[#77716A]">
                   {isRTL 
                     ? "ہیئر ٹرانسپلانٹ سرجری مکمل طور پر ہماری اسلام آباد برانچ میں جدید ترین تھیٹر میں انجام پاتی ہے۔ تھانہ مالاکنڈ کلینک میں ابتدائی معائنہ، گرافٹ پلاننگ، خون کے ٹیسٹ اور آپریشن کے بعد واش اور پی آر پی کی سہولت فراہم کی جاتی ہے۔"
                     : "Hair transplant surgery is performed exclusively at our specialized Islamabad branch operating facility. Initial consultation, hairline planning, pre-op blood work, and post-operative wash and PRP sessions are managed locally at our Thana, Malakand clinic."}
@@ -146,34 +147,34 @@ export const ServiceDetailPage = () => {
             </div>
           )}
 
-          <p className="mt-4 text-sm sm:text-base text-[#6B5B55] leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-[#77716A] leading-relaxed">
             {shortDescription}
           </p>
 
           {/* Price & Booking Bar */}
-          <div className="mt-8 pt-6 border-t border-[#F4E4DE] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="mt-8 pt-6 border-t border-[#E8E2D8] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               {hasPrice ? (
                 <>
-                  <span className="text-xs text-[#6B5B55] block">
+                  <span className="text-xs text-[#77716A] block">
                     {t('services.priceStarting')}
                   </span>
-                  <span className="font-serif text-2xl sm:text-3xl font-semibold text-[#3A3A3A]">
+                  <span className="font-serif text-2xl sm:text-3xl font-semibold text-[#262626]">
                     {service.price.toLocaleString()} PKR
                   </span>
                 </>
               ) : (
                 <>
-                  <span className="text-xs text-[#6B5B55] block">
+                  <span className="text-xs text-[#77716A] block">
                     {isRTL ? "ملاقات اور معائنہ" : "Doctor Consultation"}
                   </span>
-                  <span className="font-serif text-xl sm:text-2xl font-semibold text-[#D9A38F]">
+                  <span className="font-serif text-xl sm:text-2xl font-semibold text-[#C5A46D]">
                     {isRTL ? "مفت معائنہ برائے محدود وقت" : "Free Consultation (Limited Time)"}
                   </span>
                 </>
               )}
               {priceNote && (
-                <p className="text-xs text-[#6B5B55] mt-1">
+                <p className="text-xs text-[#77716A] mt-1">
                   {priceNote}
                 </p>
               )}
@@ -193,11 +194,11 @@ export const ServiceDetailPage = () => {
 
         {/* Detailed Clinical Explanation */}
         <div className="mt-10 grid grid-cols-1 gap-6">
-          <Card className="p-6 sm:p-8">
-            <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#3A3A3A] mb-3">
+          <Card className="p-6 sm:p-8 border border-[#E8E2D8] bg-white">
+            <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#262626] mb-3">
               {isRTL ? "طبی طریقہ کار اور علاج کے مراحل" : "Comprehensive Clinical Overview"}
             </h2>
-            <p className="text-sm sm:text-base text-[#6B5B55] leading-relaxed whitespace-pre-line">
+            <p className="text-sm sm:text-base text-[#77716A] leading-relaxed whitespace-pre-line">
               {longDescription}
             </p>
           </Card>
@@ -207,13 +208,13 @@ export const ServiceDetailPage = () => {
         {faqs && faqs.length > 0 && (
           <div className="mt-10">
             <div className="mb-6">
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#D9A38F] block mb-1">
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#C5A46D] block mb-1">
                 {isRTL ? "عام معلوماتی رہنمائی" : "General Information"}
               </span>
-              <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#3A3A3A]">
+              <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#262626]">
                 {isRTL ? "اکثر پوچھے جانے والے سوالات" : "Frequently Asked Questions"}
               </h2>
-              <p className="text-xs text-[#6B5B55] mt-1">
+              <p className="text-xs text-[#77716A] mt-1">
                 {isRTL 
                   ? "یہ معلومات صرف عام آگاہی کے لیے ہیں۔ کسی خاص نتیجے کی ضمانت نہیں، نتائج ہر مریض کی جلد اور صحت کے مطابق مختلف ہو سکتے ہیں۔"
                   : "General educational information only. No guaranteed results. Outcomes vary based on individual biological factors."}
@@ -222,12 +223,12 @@ export const ServiceDetailPage = () => {
 
             <div className="space-y-3 sm:space-y-4">
               {faqs.map((faq, idx) => (
-                <Card key={idx} className="p-5 border border-[#F4E4DE]">
-                  <h3 className="font-serif text-base sm:text-lg font-semibold text-[#3A3A3A] mb-2 flex items-start gap-2">
-                    <span className="text-[#D9A38F] font-bold shrink-0">Q{idx + 1}:</span>
+                <Card key={idx} className="p-5 border border-[#E8E2D8] bg-white">
+                  <h3 className="font-serif text-base sm:text-lg font-semibold text-[#262626] mb-2 flex items-start gap-2">
+                    <span className="text-[#C5A46D] font-bold shrink-0">Q{idx + 1}:</span>
                     <span>{isRTL ? faq.qUr : faq.qEn}</span>
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#6B5B55] leading-relaxed ps-5 border-s-2 border-[#D9A38F]/30 ms-1">
+                  <p className="text-xs sm:text-sm text-[#77716A] leading-relaxed ps-5 border-s-2 border-[#C5A46D]/40 ms-1">
                     {isRTL ? faq.aUr : faq.aEn}
                   </p>
                 </Card>
@@ -237,10 +238,10 @@ export const ServiceDetailPage = () => {
         )}
 
         {/* Clinical Disclaimer */}
-        <div className="mt-8 p-5 rounded-2xl bg-[#FBF3F0] border border-[#F4E4DE] flex items-start gap-3 text-xs text-[#6B5B55]">
-          <AlertCircle className="w-5 h-5 text-[#D9A38F] shrink-0 mt-0.5" />
+        <div className="mt-8 p-5 rounded-2xl bg-[#F3EEE5] border border-[#E8E2D8] flex items-start gap-3 text-xs text-[#77716A]">
+          <AlertCircle className="w-5 h-5 text-[#C5A46D] shrink-0 mt-0.5" />
           <div>
-            <span className="font-semibold text-[#3A3A3A]">
+            <span className="font-semibold text-[#262626]">
               {isRTL ? "طبی وضاحت: " : "Medical Notice: "}
             </span>
             <span>{getLocalized(CLINIC_INFO.disclaimer)}</span>
@@ -248,7 +249,7 @@ export const ServiceDetailPage = () => {
         </div>
 
         {/* Other Treatments Navigation */}
-        <div className="mt-10 pt-6 border-t border-[#F4E4DE] text-center">
+        <div className="mt-10 pt-6 border-t border-[#E8E2D8] text-center">
           <Link to="/services">
             <Button variant="outline" size="md">
               {isRTL ? "دیگر تمام کلینیکل طریقہ علاج دیکھیں" : "Explore Other Clinical Procedures"}
@@ -259,5 +260,4 @@ export const ServiceDetailPage = () => {
     </div>
   );
 };
-
 export default ServiceDetailPage;

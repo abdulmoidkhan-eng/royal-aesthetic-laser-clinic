@@ -104,8 +104,8 @@ export const SEED_PRODUCTS = [
       ur: "قیمت کا تعین ایڈمن کرے گا"
     },
     images: [
-      "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1608248597359-2172084c8108?w=800&auto=format&fit=crop&q=80"
+      "/assets/aistudio/image_a56795cc.png",
+      "/assets/aistudio/image_dc2df355.png"
     ],
     category: "Serum",
     inStock: true,

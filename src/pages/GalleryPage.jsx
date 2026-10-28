@@ -48,7 +48,7 @@ export const GalleryPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-white py-12 sm:py-16">
+    <div className="min-h-screen bg-[#FAF8F3] py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow={isRTL ? "کلینیکل گیلری" : "Case Studies"}
@@ -67,8 +67,8 @@ export const GalleryPage = () => {
               onClick={() => setFilter(f.id)}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
                 filter === f.id
-                  ? 'bg-[#D9A38F] text-white shadow-xs font-semibold'
-                  : 'bg-[#FBF3F0] text-[#3A3A3A] hover:bg-[#F4E4DE]'
+                  ? 'bg-[#C5A46D] text-white shadow-xs font-semibold'
+                  : 'bg-white text-[#262626] border border-[#E8E2D8] hover:bg-[#F3EEE5]'
               }`}
             >
               {isRTL ? f.labelUr : f.labelEn}
@@ -77,10 +77,10 @@ export const GalleryPage = () => {
         </div>
 
         {/* Disclaimer Notice */}
-        <div className="mb-10 p-4 rounded-2xl bg-[#FBF3F0] border border-[#F4E4DE] flex items-start gap-3 text-xs text-[#6B5B55] max-w-3xl mx-auto">
-          <AlertCircle className="w-5 h-5 text-[#D9A38F] shrink-0 mt-0.5" />
+        <div className="mb-10 p-4 rounded-2xl bg-[#F3EEE5] border border-[#E8E2D8] flex items-start gap-3 text-xs text-[#77716A] max-w-3xl mx-auto">
+          <AlertCircle className="w-5 h-5 text-[#C5A46D] shrink-0 mt-0.5" />
           <div>
-            <span className="font-semibold text-[#3A3A3A]">
+            <span className="font-semibold text-[#262626]">
               {isRTL ? "ضروری طبی اعلان: " : "Clinical Notice: "}
             </span>
             <span>{t('beforeAfter.disclaimer')}</span>
@@ -106,17 +106,17 @@ export const GalleryPage = () => {
             const afterImg = item.afterImage || item.afterUrl;
 
             return (
-              <Card key={item.id} className="overflow-hidden p-0 border border-[#F4E4DE] flex flex-col justify-between">
+              <Card key={item.id} className="overflow-hidden p-0 border border-[#E8E2D8] bg-white hover:border-[#C5A46D] transition-all flex flex-col justify-between">
                 <div>
-                  <div className="grid grid-cols-2 relative bg-neutral-100">
-                    <div className="relative aspect-[4/5] border-e border-white/50">
+                  <div className="grid grid-cols-2 relative bg-[#F3EEE5]">
+                    <div className="relative aspect-[4/5] border-e border-[#E8E2D8]">
                       <img
                         src={beforeImg}
                         alt={`Before: ${title || 'Treatment'}`}
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
-                      <span className="absolute bottom-2 start-2 bg-black/60 backdrop-blur-xs text-white text-[10px] font-medium px-2 py-0.5 rounded">
+                      <span className="absolute bottom-2 start-2 bg-black/70 backdrop-blur-xs text-white text-[10px] font-medium px-2 py-0.5 rounded">
                         {t('beforeAfter.before')}
                       </span>
                     </div>
@@ -127,7 +127,7 @@ export const GalleryPage = () => {
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
-                      <span className="absolute bottom-2 end-2 bg-[#D9A38F] text-white text-[10px] font-semibold px-2 py-0.5 rounded">
+                      <span className="absolute bottom-2 end-2 bg-[#C5A46D] text-white text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">
                         {t('beforeAfter.after')}
                       </span>
                     </div>
@@ -136,19 +136,19 @@ export const GalleryPage = () => {
                   <div className="p-5">
                     {timeframe && (
                       <div className="flex items-center justify-between mb-2">
-                        <Badge variant="blush">{timeframe}</Badge>
+                        <Badge variant="gold">{timeframe}</Badge>
                       </div>
                     )}
-                    <h3 className="font-serif text-lg font-semibold text-[#3A3A3A]">
+                    <h3 className="font-serif text-lg font-semibold text-[#262626]">
                       {title}
                     </h3>
                     {service && (
-                      <p className="text-xs text-[#D9A38F] font-semibold mt-1">
+                      <p className="text-xs text-[#C5A46D] font-semibold mt-1">
                         {service}
                       </p>
                     )}
                     {notes && (
-                      <p className="text-xs text-[#6B5B55] mt-2 leading-relaxed">
+                      <p className="text-xs text-[#77716A] mt-2 leading-relaxed">
                         {notes}
                       </p>
                     )}

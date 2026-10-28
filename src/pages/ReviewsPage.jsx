@@ -30,7 +30,7 @@ export const ReviewsPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white py-12 sm:py-16">
+    <div className="min-h-screen bg-[#FAF8F3] py-12 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           as="h1"
@@ -42,16 +42,16 @@ export const ReviewsPage = () => {
         />
 
         {/* Overall satisfaction banner */}
-        <div className="mb-12 p-6 rounded-3xl bg-[#FBF3F0] border border-[#F4E4DE] text-center max-w-xl mx-auto">
-          <div className="flex items-center justify-center gap-1.5 text-amber-500 mb-2">
+        <div className="mb-12 p-6 rounded-3xl bg-[#F3EEE5] border border-[#E8E2D8] text-center max-w-xl mx-auto">
+          <div className="flex items-center justify-center gap-1.5 text-[#C5A46D] mb-2">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-amber-500" />
+              <Star key={i} className="w-5 h-5 fill-[#C5A46D]" />
             ))}
           </div>
-          <p className="font-serif text-2xl font-bold text-[#3A3A3A]">
+          <p className="font-serif text-2xl font-bold text-[#262626]">
             4.9 / 5.0
           </p>
-          <p className="text-xs text-[#6B5B55] mt-1">
+          <p className="text-xs text-[#77716A] mt-1">
             {isRTL ? "سیکڑوں کامیاب علاج اور مطمئن مریض" : "Based on verified clinical patient consultations"}
           </p>
         </div>
@@ -67,35 +67,35 @@ export const ReviewsPage = () => {
               : '';
 
             return (
-              <Card key={review.id} className="flex flex-col justify-between">
+              <Card key={review.id} className="flex flex-col justify-between border border-[#E8E2D8] bg-white hover:border-[#C5A46D] transition-all">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-1 text-amber-500">
+                    <div className="flex items-center gap-1 text-[#C5A46D]">
                       {[...Array(review.rating || 5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-500" />
+                        <Star key={i} className="w-4 h-4 fill-[#C5A46D]" />
                       ))}
                     </div>
-                    <span className="text-xs text-[#6B5B55]">{review.date || 'Verified Patient'}</span>
+                    <span className="text-xs text-[#77716A]">{review.date || 'Verified Patient'}</span>
                   </div>
 
-                  <p className="text-sm text-[#3A3A3A] italic leading-relaxed">
+                  <p className="text-sm text-[#262626] italic leading-relaxed">
                     "{comment}"
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#F4E4DE]">
-                  <p className="font-serif font-semibold text-sm text-[#3A3A3A]">
+                <div className="mt-6 pt-4 border-t border-[#E8E2D8]">
+                  <p className="font-serif font-semibold text-sm text-[#262626]">
                     {review.name}
                   </p>
-                  <div className="flex items-center justify-between text-xs text-[#6B5B55] mt-0.5">
+                  <div className="flex items-center justify-between text-xs text-[#77716A] mt-0.5">
                     <span>{review.location || 'Malakand'}</span>
-                    <span className="text-[#D9A38F] font-medium flex items-center gap-1">
+                    <span className="text-[#C5A46D] font-medium flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3" />
                       {t('reviews.verifiedPatient')}
                     </span>
                   </div>
                   {treatment && (
-                    <p className="text-[11px] text-[#6B5B55] mt-1.5 font-medium">
+                    <p className="text-[11px] text-[#77716A] mt-1.5 font-medium">
                       {treatment}
                     </p>
                   )}
@@ -106,12 +106,12 @@ export const ReviewsPage = () => {
         </div>
 
         {/* Leave feedback CTA */}
-        <div className="mt-14 p-8 rounded-3xl bg-white border border-[#F4E4DE] text-center max-w-2xl mx-auto shadow-xs">
-          <MessageSquare className="w-8 h-8 text-[#D9A38F] mx-auto mb-3" />
-          <h3 className="font-serif text-xl font-semibold text-[#3A3A3A]">
+        <div className="mt-14 p-8 rounded-3xl bg-white border border-[#E8E2D8] text-center max-w-2xl mx-auto shadow-xs">
+          <MessageSquare className="w-8 h-8 text-[#C5A46D] mx-auto mb-3" />
+          <h3 className="font-serif text-xl font-semibold text-[#262626]">
             {isRTL ? "کیا آپ ہمارے کلینک تشریف لائے ہیں؟" : "Visited Royal Aesthetic Clinic?"}
           </h3>
-          <p className="text-xs sm:text-sm text-[#6B5B55] mt-2 mb-6">
+          <p className="text-xs sm:text-sm text-[#77716A] mt-2 mb-6">
             {isRTL 
               ? "ہمیں اپنی رائے اور تاثرات سے آگاہ کریں تاکہ ہم اپنی سروسز کو مزید بہتر بنا سکیں۔" 
               : "Share your experience with our team on WhatsApp or Google Reviews."}

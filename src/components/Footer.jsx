@@ -25,37 +25,37 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#FBF3F0] border-t border-[#F4E4DE] text-[#3A3A3A] transition-colors">
+    <footer className="bg-[#F3EEE5] border-t border-[#E8E2D8] text-[#262626] transition-colors">
       {/* Upper Footer: Main columns */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {/* Col 1: Brand & Philosophy */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-xs border border-[#F4E4DE] bg-white shrink-0 flex items-center justify-center p-0.5">
+              <div className="w-11 h-11 rounded-xl overflow-hidden shadow-xs border border-[#E8E2D8] bg-white shrink-0 flex items-center justify-center p-0.5">
                 <picture>
                   <source srcSet="/assets/aistudio/Golden_Crowned_R_Emblem_44ae7f4a.webp" type="image/webp" />
                   <img 
                     src="/assets/aistudio/Golden_Crowned_R_Emblem_44ae7f4a.png" 
                     alt="Royal Aesthetic & Laser Clinic Logo" 
-                    width="40"
-                    height="40"
+                    width="44"
+                    height="44"
                     loading="lazy"
                     className="w-full h-full object-contain"
                   />
                 </picture>
               </div>
               <div>
-                <h3 className="font-serif text-lg font-semibold text-[#3A3A3A] leading-tight">
+                <h3 className="font-serif text-lg font-bold text-[#262626] leading-tight">
                   Royal Aesthetic
                 </h3>
-                <p className="text-xs text-[#6B5B55]">
+                <p className="text-[11px] text-[#77716A] tracking-[0.15em] uppercase font-medium">
                   & Laser Clinic • Malakand
                 </p>
               </div>
             </div>
 
-            <p className="text-sm text-[#6B5B55] leading-relaxed">
+            <p className="text-sm text-[#77716A] leading-relaxed">
               {t('footer.aboutText')}
             </p>
 
@@ -65,7 +65,7 @@ export const Footer = () => {
                 href={CLINIC_INFO.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white border border-[#F4E4DE] flex items-center justify-center text-[#6B5B55] hover:text-[#D9A38F] hover:border-[#D9A38F] transition-all"
+                className="w-9 h-9 rounded-xl bg-white border border-[#E8E2D8] flex items-center justify-center text-[#77716A] hover:text-[#C5A46D] hover:border-[#C5A46D] transition-all"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -74,7 +74,7 @@ export const Footer = () => {
                 href={CLINIC_INFO.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white border border-[#F4E4DE] flex items-center justify-center text-[#6B5B55] hover:text-[#D9A38F] hover:border-[#D9A38F] transition-all"
+                className="w-9 h-9 rounded-xl bg-white border border-[#E8E2D8] flex items-center justify-center text-[#77716A] hover:text-[#C5A46D] hover:border-[#C5A46D] transition-all"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
@@ -83,7 +83,7 @@ export const Footer = () => {
                 href={CLINIC_INFO.socials.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white border border-[#F4E4DE] flex items-center justify-center text-[#6B5B55] hover:text-[#D9A38F] hover:border-[#D9A38F] transition-all"
+                className="w-9 h-9 rounded-xl bg-white border border-[#E8E2D8] flex items-center justify-center text-[#77716A] hover:text-[#C5A46D] hover:border-[#C5A46D] transition-all"
                 aria-label="TikTok"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -95,7 +95,7 @@ export const Footer = () => {
 
           {/* Col 2: Quick Links */}
           <div>
-            <h4 className="font-serif text-base font-semibold text-[#3A3A3A] mb-4">
+            <h4 className="font-serif text-base font-semibold text-[#262626] mb-4">
               {t('footer.quickLinks')}
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -103,7 +103,7 @@ export const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-[#6B5B55] hover:text-[#D9A38F] transition-colors"
+                    className="text-[#77716A] hover:text-[#C5A46D] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -114,7 +114,7 @@ export const Footer = () => {
 
           {/* Col 3: Popular Treatments */}
           <div>
-            <h4 className="font-serif text-base font-semibold text-[#3A3A3A] mb-4">
+            <h4 className="font-serif text-base font-semibold text-[#262626] mb-4">
               {t('footer.treatments')}
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -122,7 +122,7 @@ export const Footer = () => {
                 <li key={idx}>
                   <Link
                     to={item.to}
-                    className="text-[#6B5B55] hover:text-[#D9A38F] transition-colors"
+                    className="text-[#77716A] hover:text-[#C5A46D] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -133,12 +133,12 @@ export const Footer = () => {
 
           {/* Col 4: Clinic Info & Timings */}
           <div className="space-y-4">
-            <h4 className="font-serif text-base font-semibold text-[#3A3A3A] mb-2">
+            <h4 className="font-serif text-base font-semibold text-[#262626] mb-2">
               {t('footer.contactInfo')}
             </h4>
 
-            <div className="flex items-start gap-3 text-sm text-[#6B5B55]">
-              <MapPin className="w-4 h-4 text-[#D9A38F] shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 text-sm text-[#77716A]">
+              <MapPin className="w-4 h-4 text-[#C5A46D] shrink-0 mt-0.5" />
               <div>
                 <span>{getLocalized(CLINIC_INFO.address)}</span>
                 <div className="mt-1">
@@ -146,7 +146,7 @@ export const Footer = () => {
                     href={CLINIC_INFO.googleMapsUrl || "https://maps.app.goo.gl/MQF1gR36KicZYmhu5"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-[#D9A38F] hover:underline font-medium inline-flex items-center gap-1"
+                    className="text-xs text-[#9E7F47] hover:underline font-medium inline-flex items-center gap-1"
                   >
                     <span>{isRTL ? "گوگل میپس میں دیکھیں" : "View on Google Maps"}</span>
                     <span>→</span>
@@ -155,21 +155,21 @@ export const Footer = () => {
               </div>
             </div>
 
-            <div className="flex items-start gap-3 text-sm text-[#6B5B55]">
-              <Clock className="w-4 h-4 text-[#D9A38F] shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 text-sm text-[#77716A]">
+              <Clock className="w-4 h-4 text-[#C5A46D] shrink-0 mt-0.5" />
               <div>
-                <p className="font-medium text-[#3A3A3A]">{getLocalized(CLINIC_INFO.timings)}</p>
-                <p className="text-xs text-amber-800 font-semibold mt-0.5">
+                <p className="font-medium text-[#262626]">{getLocalized(CLINIC_INFO.timings)}</p>
+                <p className="text-xs text-[#9E7F47] font-semibold mt-0.5">
                   {getLocalized(CLINIC_INFO.timings.offDayEn ? { en: CLINIC_INFO.timings.offDayEn, ur: CLINIC_INFO.timings.offDayUr } : {})}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 text-sm text-[#6B5B55]">
-              <Mail className="w-4 h-4 text-[#D9A38F] shrink-0" />
+            <div className="flex items-center gap-3 text-sm text-[#77716A]">
+              <Mail className="w-4 h-4 text-[#C5A46D] shrink-0" />
               <a
                 href={`mailto:${CLINIC_INFO.email}`}
-                className="hover:text-[#D9A38F] transition-colors"
+                className="hover:text-[#C5A46D] transition-colors"
               >
                 {CLINIC_INFO.email}
               </a>
@@ -180,7 +180,7 @@ export const Footer = () => {
                 href={buildWhatsAppLink(isRTL ? "السلام علیکم! میں رائل کلینک سے رابطہ کرنا چاہتا/چاہتی ہوں۔" : "Hello Royal Aesthetic Clinic! I would like to inquire about your services.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-2 rounded-xl bg-white border border-[#D9A38F] text-[#3A3A3A] hover:bg-[#F4E4DE] transition-all"
+                className="inline-flex items-center gap-2 text-xs font-medium px-3.5 py-2 rounded-xl bg-white border border-[#C5A46D] text-[#262626] hover:bg-[#FAF8F3] transition-all shadow-2xs"
               >
                 <span>{isRTL ? "ڈائریکٹ واٹس ایپ رابطہ" : "Direct WhatsApp Help"}</span>
               </a>
@@ -189,10 +189,10 @@ export const Footer = () => {
         </div>
 
         {/* Medical Disclaimer Banner */}
-        <div className="mt-12 p-4 rounded-2xl bg-white border border-[#F4E4DE] flex items-start gap-3 text-xs text-[#6B5B55] leading-relaxed">
-          <AlertCircle className="w-4 h-4 text-[#D9A38F] shrink-0 mt-0.5" />
+        <div className="mt-12 p-4 rounded-2xl bg-white border border-[#E8E2D8] flex items-start gap-3 text-xs text-[#77716A] leading-relaxed shadow-2xs">
+          <AlertCircle className="w-4 h-4 text-[#C5A46D] shrink-0 mt-0.5" />
           <div>
-            <span className="font-semibold text-[#3A3A3A]">
+            <span className="font-semibold text-[#262626]">
               {isRTL ? "اہم طبی رہنمائی: " : "Clinical Disclaimer: "}
             </span>
             <span>{getLocalized(CLINIC_INFO.disclaimer)}</span>{" "}
@@ -205,15 +205,15 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar: Copyright & Terms */}
-        <div className="mt-8 pt-6 border-t border-[#F4E4DE] flex flex-col sm:flex-row items-center justify-between text-xs text-[#6B5B55] gap-3">
+        <div className="mt-8 pt-6 border-t border-[#E8E2D8] flex flex-col sm:flex-row items-center justify-between text-xs text-[#77716A] gap-3">
           <p>
             © {new Date().getFullYear()} {getLocalized({ en: CLINIC_INFO.name, ur: CLINIC_INFO.nameUrdu })}. {t('footer.allRightsReserved')}
           </p>
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1 text-[11px]">
+            <span className="flex items-center gap-1 text-[11px] font-medium text-[#262626]">
               {isRTL ? "معیاری و محفوظ لیزر کلینک" : "Certified Aesthetic Practice"}
             </span>
-            <span className="text-[#D9A38F]">•</span>
+            <span className="text-[#C5A46D]">•</span>
             <span>Malakand, KPK</span>
           </div>
         </div>

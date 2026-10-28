@@ -38,27 +38,27 @@ export const OrderConfirmationPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-12 sm:py-20">
+    <div className="min-h-screen bg-[#FAF8F3] py-12 sm:py-20">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Success Icon */}
         <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-200">
           <CheckCircle2 className="w-10 h-10" />
         </div>
 
-        <span className="text-xs font-semibold text-[#D9A38F] uppercase tracking-wider">
+        <span className="text-xs font-semibold text-[#C5A46D] uppercase tracking-wider">
           {isRTL ? "آرڈر کامیابی کے ساتھ درج ہو گیا" : "Order Placed Successfully"}
         </span>
 
-        <h1 className="font-serif text-2xl sm:text-3xl font-normal text-[#3A3A3A] mt-2">
+        <h1 className="font-serif text-2xl sm:text-3xl font-normal text-[#262626] mt-2">
           {isRTL ? "رائل کلینک مالاکنڈ کا انتخاب کرنے کا شکریہ!" : "Thank You for Ordering with Royal Clinic!"}
         </h1>
 
         {/* Order Number Box */}
-        <div className="mt-6 p-5 rounded-2xl bg-[#FBF3F0] border border-[#F4E4DE] text-center">
-          <span className="text-xs text-[#6B5B55] block">
+        <div className="mt-6 p-5 rounded-2xl bg-[#F3EEE5] border border-[#E8E2D8] text-center">
+          <span className="text-xs text-[#77716A] block">
             {isRTL ? "آپ کا آرڈر نمبر:" : "Your Order Reference Number:"}
           </span>
-          <span className="font-mono text-2xl font-bold text-[#3A3A3A] tracking-wider mt-1 block">
+          <span className="font-mono text-2xl font-bold text-[#262626] tracking-wider mt-1 block">
             {orderNumber}
           </span>
 
@@ -70,7 +70,7 @@ export const OrderConfirmationPage = () => {
             </span>
           </div>
 
-          <p className="text-xs text-[#6B5B55] mt-3">
+          <p className="text-xs text-[#77716A] mt-3">
             {isRTL
               ? "آپ کا آرڈر اور ٹرانزیکشن ID فائر بیس ڈیٹا بیس میں محفوظ کر لی گئی ہے۔ ہماری کلینک ٹیم ادائیگی کی جانچ کر رہی ہے۔"
               : "Your order details and Transaction ID are logged in our clinic database. Our team is verifying your payment."}
@@ -78,14 +78,14 @@ export const OrderConfirmationPage = () => {
         </div>
 
         {/* Optional Button to Send Order Number to Clinic on WhatsApp */}
-        <div className="mt-6 p-6 rounded-2xl bg-white border border-[#F4E4DE] shadow-xs text-start">
+        <div className="mt-6 p-6 rounded-2xl bg-white border border-[#E8E2D8] shadow-xs text-start">
           <div className="flex items-center gap-2 mb-2">
             <MessageCircle className="w-5 h-5 text-emerald-600" />
-            <h3 className="font-semibold text-sm text-[#3A3A3A]">
+            <h3 className="font-semibold text-sm text-[#262626]">
               {isRTL ? "کلینک کو واٹس ایپ پر آرڈر نمبر بھیجیں (اختیاری)" : "Send Order Number on WhatsApp (Optional)"}
             </h3>
           </div>
-          <p className="text-xs text-[#6B5B55] leading-relaxed mb-4">
+          <p className="text-xs text-[#77716A] leading-relaxed mb-4">
             {isRTL 
               ? "تیز ترین تصدیق کے لیے، ایک کلک سے اپنا آرڈر نمبر اور ٹرانزیکشن ID کلینک مینیجر کو واٹس ایپ پر بھیجیں۔"
               : "To fast-track manual payment verification and parcel packing, you can notify the clinic team directly on WhatsApp."}
@@ -104,31 +104,31 @@ export const OrderConfirmationPage = () => {
 
         {/* Order Details Preview */}
         {order && (
-          <Card className="mt-6 text-start p-5 border-[#F4E4DE]">
-            <h4 className="text-xs font-semibold text-[#3A3A3A] uppercase tracking-wider mb-3">
+          <Card className="mt-6 text-start p-5 border-[#E8E2D8]">
+            <h4 className="text-xs font-semibold text-[#262626] uppercase tracking-wider mb-3">
               {isRTL ? "آرڈر کی تفصیلات" : "Order Summary"}
             </h4>
 
-            <div className="text-xs space-y-2 text-[#6B5B55]">
+            <div className="text-xs space-y-2 text-[#77716A]">
               <div className="flex justify-between">
                 <span>{isRTL ? "کسٹمر کا نام:" : "Customer:"}</span>
-                <span className="font-semibold text-[#3A3A3A]">{order.customer?.fullName}</span>
+                <span className="font-semibold text-[#262626]">{order.customer?.fullName}</span>
               </div>
               <div className="flex justify-between">
                 <span>{isRTL ? "موبائل:" : "Phone:"}</span>
-                <span className="font-mono text-[#3A3A3A]">{order.customer?.phone}</span>
+                <span className="font-mono text-[#262626]">{order.customer?.phone}</span>
               </div>
               <div className="flex justify-between">
                 <span>{isRTL ? "شہر:" : "City:"}</span>
-                <span className="text-[#3A3A3A]">{order.customer?.city}</span>
+                <span className="text-[#262626]">{order.customer?.city}</span>
               </div>
               <div className="flex justify-between">
                 <span>{isRTL ? "پتہ:" : "Delivery Address:"}</span>
-                <span className="text-[#3A3A3A] text-end max-w-xs truncate">{order.customer?.address}</span>
+                <span className="text-[#262626] text-end max-w-xs truncate">{order.customer?.address}</span>
               </div>
               <div className="flex justify-between">
                 <span>{isRTL ? "طریقہ ادائیگی:" : "Payment Method:"}</span>
-                <span className="font-medium text-[#3A3A3A] capitalize">{order.paymentMethod}</span>
+                <span className="font-medium text-[#262626] capitalize">{order.paymentMethod}</span>
               </div>
               <div className="flex justify-between">
                 <span>{isRTL ? "ٹرانزیکشن ID:" : "Transaction ID:"}</span>
@@ -141,8 +141,8 @@ export const OrderConfirmationPage = () => {
 
               {/* Items summary */}
               {order.items?.length > 0 && (
-                <div className="pt-2 border-t border-[#F4E4DE] space-y-1">
-                  <span className="font-semibold text-[#3A3A3A] block mb-1">
+                <div className="pt-2 border-t border-[#E8E2D8] space-y-1">
+                  <span className="font-semibold text-[#262626] block mb-1">
                     {isRTL ? "اشیاء:" : "Purchased Items:"}
                   </span>
                   {order.items.map((item, idx) => (

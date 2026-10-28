@@ -6,11 +6,11 @@ export const Badge = ({
   className = ''
 }) => {
   const styles = {
-    blush: 'bg-[#FBF3F0] text-[#D9A38F] border border-[#F4E4DE]',
-    solid: 'bg-[#D9A38F] text-white',
-    dark: 'bg-[#3A3A3A] text-white',
-    success: 'bg-emerald-50 text-emerald-700 border border-emerald-100',
-    outline: 'border border-[#D9A38F] text-[#6B5B55]'
+    blush: 'bg-[#FAF8F3] text-[#9E7F47] border border-[#E8E2D8] font-medium',
+    solid: 'bg-[#C5A46D] text-white font-medium',
+    dark: 'bg-[#262626] text-white font-medium',
+    success: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
+    outline: 'border border-[#C5A46D] text-[#77716A]'
   };
 
   return (

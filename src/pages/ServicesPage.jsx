@@ -102,7 +102,7 @@ export const ServicesPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-12 sm:py-16">
+    <div className="min-h-screen bg-[#FAF8F3] py-12 sm:py-20 text-[#262626]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           as="h1"
@@ -122,14 +122,14 @@ export const ServicesPage = () => {
           />
 
           {currentQuery && (
-            <div className="mt-3 flex items-center justify-between text-xs px-2 text-[#6B5B55]">
+            <div className="mt-3 flex items-center justify-between text-xs px-2 text-[#77716A]">
               <span>
                 {isRTL ? `تلاش کے نتائج برائے: "${currentQuery}"` : `Showing treatments matching: "${currentQuery}"`}
               </span>
               <button
                 type="button"
                 onClick={handleClearSearch}
-                className="text-[#D9A38F] hover:underline font-semibold"
+                className="text-[#9E7F47] hover:underline font-semibold cursor-pointer"
               >
                 {isRTL ? "فلٹر ختم کریں" : "Clear filter"}
               </button>
@@ -144,10 +144,10 @@ export const ServicesPage = () => {
               key={cat.id}
               type="button"
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer ${
                 activeCategory === cat.id
-                  ? 'bg-[#D9A38F] text-white shadow-xs font-semibold'
-                  : 'bg-[#FBF3F0] text-[#3A3A3A] hover:bg-[#F4E4DE]'
+                  ? 'bg-[#C5A46D] text-white shadow-xs font-semibold'
+                  : 'bg-white text-[#262626] border border-[#E8E2D8] hover:border-[#C5A46D] hover:bg-[#F3EEE5]/40 shadow-2xs'
               }`}
             >
               {isRTL ? cat.labelUr : cat.labelEn}

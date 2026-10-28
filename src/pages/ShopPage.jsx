@@ -9,6 +9,7 @@ import SectionHeader from '../components/UI/SectionHeader.jsx';
 import Card from '../components/UI/Card.jsx';
 import Button from '../components/UI/Button.jsx';
 import Badge from '../components/UI/Badge.jsx';
+import OptimizedImage from '../components/UI/OptimizedImage.jsx';
 
 export const ShopPage = () => {
   const { language, isRTL, t, getLocalized } = useLanguage();
@@ -60,7 +61,7 @@ export const ShopPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-12 sm:py-16">
+    <div className="min-h-screen bg-[#FAF8F3] py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           as="h1"
@@ -72,30 +73,30 @@ export const ShopPage = () => {
         />
 
         {/* Free Delivery Banner */}
-        <div className="mb-10 p-4 rounded-2xl bg-[#FBF3F0] border border-[#F4E4DE] flex flex-wrap items-center justify-around gap-4 text-xs sm:text-sm text-[#3A3A3A]">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[#D9A38F] text-white flex items-center justify-center shrink-0">
+        <div className="mb-10 p-4 rounded-2xl bg-[#F3EEE5] border border-[#E8E2D8] flex flex-wrap items-center justify-around gap-4 text-xs sm:text-sm text-[#262626]">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full bg-[#C5A46D] text-white flex items-center justify-center shrink-0 shadow-xs">
               <Truck className="w-4 h-4" />
             </div>
             <div>
-              <span className="font-semibold block text-[#3A3A3A]">
+              <span className="font-semibold block text-[#262626]">
                 {isRTL ? "پورے پاکستان میں مفت ڈیلیوری" : "Free delivery all over Pakistan"}
               </span>
-              <span className="text-[11px] text-[#6B5B55]">
+              <span className="text-[11px] text-[#77716A]">
                 {isRTL ? "تمام پروڈکٹس پر کوئی اضافی ڈیلیوری چارجز نہیں" : "Zero shipping fee on all skincare dispensary orders"}
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
               <ShieldCheck className="w-4 h-4" />
             </div>
             <div>
-              <span className="font-semibold block text-[#3A3A3A]">
+              <span className="font-semibold block text-[#262626]">
                 {isRTL ? "100% مستند کلینیکل اجزاء" : "100% Authentic Clinical Formulas"}
               </span>
-              <span className="text-[11px] text-[#6B5B55]">
+              <span className="text-[11px] text-[#77716A]">
                 {isRTL ? "ڈاکٹر کے معائنے کے بعد تجویز کردہ" : "Physician tested & non-comedogenic"}
               </span>
             </div>
@@ -109,10 +110,10 @@ export const ShopPage = () => {
               key={cat.id}
               type="button"
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all ${
                 activeCategory === cat.id
-                  ? 'bg-[#D9A38F] text-white shadow-xs font-semibold'
-                  : 'bg-[#FBF3F0] text-[#3A3A3A] hover:bg-[#F4E4DE]'
+                  ? 'bg-[#C5A46D] text-white shadow-xs font-semibold'
+                  : 'bg-white text-[#262626] border border-[#E8E2D8] hover:bg-[#F3EEE5]'
               }`}
             >
               {isRTL ? cat.labelUr : cat.labelEn}
@@ -124,7 +125,7 @@ export const ShopPage = () => {
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-96 rounded-2xl bg-[#FBF3F0]/60 animate-pulse border border-[#F4E4DE]" />
+              <div key={i} className="h-96 rounded-2xl bg-white/70 animate-pulse border border-[#E8E2D8]" />
             ))}
           </div>
         ) : filteredProducts.length > 0 ? (
@@ -139,14 +140,16 @@ export const ShopPage = () => {
               return (
                 <Card 
                   key={product.id} 
-                  className="flex flex-col justify-between overflow-hidden p-0 border border-[#F4E4DE] group transition-all duration-200"
+                  className="flex flex-col justify-between overflow-hidden p-0 border border-[#E8E2D8] hover:border-[#C5A46D] group transition-all duration-300"
                 >
                   {/* Image container */}
-                  <div className="relative aspect-square bg-[#FBF3F0] overflow-hidden">
+                  <div className="relative aspect-square bg-[#F3EEE5] overflow-hidden">
                     <Link to={`/product/${product.id}`} className="block w-full h-full">
-                      <img
+                      <OptimizedImage
                         src={imageUrl}
                         alt={name}
+                        width={400}
+                        height={400}
                         className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
                           !isAvailable ? 'grayscale opacity-75' : ''
                         }`}
@@ -156,7 +159,7 @@ export const ShopPage = () => {
 
                     {/* Category pill */}
                     <div className="absolute top-3 start-3">
-                      <span className="bg-white/95 text-[#3A3A3A] text-[10px] font-semibold px-2 py-0.5 rounded-md shadow-2xs border border-[#F4E4DE]">
+                      <span className="bg-white/95 text-[#262626] text-[10px] font-semibold px-2.5 py-1 rounded-md shadow-2xs border border-[#E8E2D8]">
                         {product.category}
                       </span>
                     </div>
@@ -185,28 +188,28 @@ export const ShopPage = () => {
                   <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                     <div>
                       <Link to={`/product/${product.id}`}>
-                        <h3 className="font-serif text-base font-semibold text-[#3A3A3A] hover:text-[#D9A38F] transition-colors line-clamp-1">
+                        <h3 className="font-serif text-base font-semibold text-[#262626] hover:text-[#C5A46D] transition-colors line-clamp-1">
                           {name}
                         </h3>
                       </Link>
 
-                      <p className="mt-1.5 text-xs text-[#6B5B55] line-clamp-2 leading-relaxed">
+                      <p className="mt-1.5 text-xs text-[#77716A] line-clamp-2 leading-relaxed">
                         {description}
                       </p>
                     </div>
 
                     {/* Price and Add button */}
-                    <div className="mt-4 pt-3 border-t border-[#F4E4DE]">
+                    <div className="mt-4 pt-3 border-t border-[#E8E2D8]">
                       <div className="mb-3">
-                        <span className="text-[10px] text-[#6B5B55] uppercase tracking-wider block">
+                        <span className="text-[10px] text-[#77716A] uppercase tracking-wider block font-medium">
                           {t('products.price')}
                         </span>
                         {isPriceZero ? (
-                          <span className="text-xs font-semibold text-[#D9A38F]">
+                          <span className="text-xs font-semibold text-[#C5A46D]">
                             {isRTL ? "قیمت کا تعین ایڈمن کرے گا" : "Price to be set by admin"}
                           </span>
                         ) : (
-                          <span className="font-serif text-base font-bold text-[#3A3A3A]">
+                          <span className="font-serif text-base font-bold text-[#262626]">
                             {product.price.toLocaleString()} PKR
                           </span>
                         )}
@@ -245,8 +248,8 @@ export const ShopPage = () => {
             })}
           </div>
         ) : (
-          <div className="text-center py-16 bg-[#FBF3F0]/60 rounded-3xl max-w-md mx-auto p-8 border border-[#F4E4DE]">
-            <p className="font-serif text-base text-[#3A3A3A]">
+          <div className="text-center py-16 bg-[#F3EEE5] rounded-3xl max-w-md mx-auto p-8 border border-[#E8E2D8]">
+            <p className="font-serif text-base text-[#262626]">
               {isRTL ? "اس کیٹیگری میں کوئی پروڈکٹ دستیاب نہیں" : "No products found in this category"}
             </p>
             <Button

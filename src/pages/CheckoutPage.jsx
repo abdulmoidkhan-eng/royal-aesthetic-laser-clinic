@@ -59,10 +59,10 @@ export const CheckoutPage = () => {
   if (cart.length === 0) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center">
-        <h2 className="font-serif text-2xl text-[#3A3A3A]">
+        <h2 className="font-serif text-2xl text-[#262626]">
           {isRTL ? "ٹوکری خالی ہے" : "No Items in Bag"}
         </h2>
-        <p className="text-sm text-[#6B5B55] mt-2 mb-6">
+        <p className="text-sm text-[#77716A] mt-2 mb-6">
           {isRTL ? "چیک آؤٹ سے پہلے براہ کرم مصنوعات شامل کریں۔" : "Please add products before checking out."}
         </p>
         <Link to="/shop">
@@ -178,7 +178,7 @@ export const CheckoutPage = () => {
   const activeMethod = formData.paymentMethod;
 
   return (
-    <div className="min-h-screen bg-white py-10 sm:py-16">
+    <div className="min-h-screen bg-[#FAF8F3] py-10 sm:py-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow={isRTL ? "محفوظ گیسٹ چیک آؤٹ" : "Guest Checkout"}
@@ -190,16 +190,16 @@ export const CheckoutPage = () => {
         />
 
         {/* Free Delivery Banner */}
-        <div className="mb-8 p-4 rounded-2xl bg-[#FBF3F0] border border-[#F4E4DE] flex items-center justify-between gap-4 text-xs sm:text-sm text-[#3A3A3A]">
+        <div className="mb-8 p-4 rounded-2xl bg-[#F3EEE5] border border-[#E8E2D8] flex items-center justify-between gap-4 text-xs sm:text-sm text-[#262626]">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#D9A38F] text-white flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-full bg-[#C5A46D] text-white flex items-center justify-center shrink-0">
               <Truck className="w-5 h-5" />
             </div>
             <div>
-              <strong className="block text-sm font-semibold text-[#3A3A3A]">
+              <strong className="block text-sm font-semibold text-[#262626]">
                 {isRTL ? "پورے پاکستان میں مفت ڈیلیوری" : "Free delivery all over Pakistan"}
               </strong>
-              <span className="text-[11px] text-[#6B5B55]">
+              <span className="text-[11px] text-[#77716A]">
                 {isRTL ? "کوئی پوشیدہ اخراجات یا شپنگ فیس نہیں" : "No hidden charges or shipping fees"}
               </span>
             </div>
@@ -223,13 +223,13 @@ export const CheckoutPage = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* 1. Recipient Details */}
                 <div>
-                  <h3 className="font-serif text-lg font-semibold text-[#3A3A3A] mb-4 pb-2 border-b border-[#F4E4DE]">
+                  <h3 className="font-serif text-lg font-semibold text-[#262626] mb-4 pb-2 border-b border-[#E8E2D8]">
                     {isRTL ? "1. وصول کنندہ کی معلومات" : "1. Recipient Information"}
                   </h3>
 
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-xs font-semibold text-[#3A3A3A] mb-1.5">
+                      <label className="block text-xs font-semibold text-[#262626] mb-1.5">
                         {isRTL ? "پورا نام *" : "Full Name *"}
                       </label>
                       <input
@@ -239,13 +239,13 @@ export const CheckoutPage = () => {
                         value={formData.fullName}
                         onChange={handleInputChange}
                         placeholder={isRTL ? "مثال: مریم خان" : "e.g. Maryam Khan"}
-                        className="w-full px-4 py-3 rounded-xl border border-[#F4E4DE] text-sm text-[#3A3A3A] focus:outline-none focus:border-[#D9A38F] bg-white"
+                        className="w-full px-4 py-3 rounded-xl border border-[#E8E2D8] text-sm text-[#262626] focus:outline-none focus:border-[#C5A46D] bg-white"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-[#3A3A3A] mb-1.5">
+                        <label className="block text-xs font-semibold text-[#262626] mb-1.5">
                           {isRTL ? "موبائل یا واٹس ایپ نمبر *" : "Mobile / WhatsApp Number *"}
                         </label>
                         <input
@@ -255,19 +255,19 @@ export const CheckoutPage = () => {
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="0347 0000000"
-                          className="w-full px-4 py-3 rounded-xl border border-[#F4E4DE] text-sm text-[#3A3A3A] focus:outline-none focus:border-[#D9A38F] bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-[#E8E2D8] text-sm text-[#262626] focus:outline-none focus:border-[#C5A46D] bg-white"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-[#3A3A3A] mb-1.5">
+                        <label className="block text-xs font-semibold text-[#262626] mb-1.5">
                           {isRTL ? "شہر / ضلع *" : "City / District *"}
                         </label>
                         <select
                           name="city"
                           value={formData.city}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl border border-[#F4E4DE] text-sm text-[#3A3A3A] focus:outline-none focus:border-[#D9A38F] bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-[#E8E2D8] text-sm text-[#262626] focus:outline-none focus:border-[#C5A46D] bg-white"
                         >
                           <option value="Malakand / Thana">Malakand / Thana</option>
                           <option value="Batkhela">Batkhela</option>
@@ -284,7 +284,7 @@ export const CheckoutPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-[#3A3A3A] mb-1.5">
+                      <label className="block text-xs font-semibold text-[#262626] mb-1.5">
                         {isRTL ? "مکمل پتہ اور قریبی نشانی *" : "Full Street Address & Landmark *"}
                       </label>
                       <textarea
@@ -294,12 +294,12 @@ export const CheckoutPage = () => {
                         value={formData.address}
                         onChange={handleInputChange}
                         placeholder={isRTL ? "محلہ، گلی، مکان نمبر، قریبی مسجد یا دکان..." : "House/apartment #, street, nearby shop or landmark..."}
-                        className="w-full px-4 py-3 rounded-xl border border-[#F4E4DE] text-sm text-[#3A3A3A] focus:outline-none focus:border-[#D9A38F] bg-white resize-none"
+                        className="w-full px-4 py-3 rounded-xl border border-[#E8E2D8] text-sm text-[#262626] focus:outline-none focus:border-[#C5A46D] bg-white resize-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-[#3A3A3A] mb-1.5">
+                      <label className="block text-xs font-semibold text-[#262626] mb-1.5">
                         {isRTL ? "خصوصی ڈیلیوری نوٹ (اختیاری)" : "Special Delivery Instructions (Optional)"}
                       </label>
                       <input
@@ -308,7 +308,7 @@ export const CheckoutPage = () => {
                         value={formData.notes}
                         onChange={handleInputChange}
                         placeholder={isRTL ? "کال کرنے کا مناسب وقت وغیرہ..." : "Preferred delivery hours or instructions..."}
-                        className="w-full px-4 py-3 rounded-xl border border-[#F4E4DE] text-sm text-[#3A3A3A] focus:outline-none focus:border-[#D9A38F] bg-white"
+                        className="w-full px-4 py-3 rounded-xl border border-[#E8E2D8] text-sm text-[#262626] focus:outline-none focus:border-[#C5A46D] bg-white"
                       />
                     </div>
                   </div>
@@ -316,10 +316,10 @@ export const CheckoutPage = () => {
 
                 {/* 2. Payment Instructions from Firestore Site Settings */}
                 <div className="pt-4">
-                  <h3 className="font-serif text-lg font-semibold text-[#3A3A3A] mb-2 pb-2 border-b border-[#F4E4DE]">
+                  <h3 className="font-serif text-lg font-semibold text-[#262626] mb-2 pb-2 border-b border-[#E8E2D8]">
                     {isRTL ? "2. ادائیگی کی ہدایات (Payment Instructions)" : "2. Payment Instructions"}
                   </h3>
-                  <p className="text-xs text-[#6B5B55] mb-4">
+                  <p className="text-xs text-[#77716A] mb-4">
                     {isRTL 
                       ? "ویب سائٹ سے باہر اپنے موبائل اکاؤنٹ یا بینک سے رقم ادا کریں اور رسید کی ٹرانزیکشن ID درج کریں۔" 
                       : "Pay outside the website using the account details below, then enter your Trx ID."}
@@ -333,7 +333,7 @@ export const CheckoutPage = () => {
                       className={`py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all ${
                         activeMethod === 'easypaisa'
                           ? 'bg-[#25D366]/10 text-emerald-800 border-emerald-500 shadow-2xs'
-                          : 'bg-white border-[#F4E4DE] text-[#6B5B55] hover:bg-[#FBF3F0]'
+                          : 'bg-white border-[#E8E2D8] text-[#77716A] hover:bg-[#F3EEE5]'
                       }`}
                     >
                       Easypaisa
@@ -344,7 +344,7 @@ export const CheckoutPage = () => {
                       className={`py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all ${
                         activeMethod === 'jazzcash'
                           ? 'bg-rose-50 text-rose-800 border-rose-400 shadow-2xs'
-                          : 'bg-white border-[#F4E4DE] text-[#6B5B55] hover:bg-[#FBF3F0]'
+                          : 'bg-white border-[#E8E2D8] text-[#77716A] hover:bg-[#F3EEE5]'
                       }`}
                     >
                       JazzCash
@@ -355,7 +355,7 @@ export const CheckoutPage = () => {
                       className={`py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all ${
                         activeMethod === 'bankTransfer'
                           ? 'bg-indigo-50 text-indigo-800 border-indigo-400 shadow-2xs'
-                          : 'bg-white border-[#F4E4DE] text-[#6B5B55] hover:bg-[#FBF3F0]'
+                          : 'bg-white border-[#E8E2D8] text-[#77716A] hover:bg-[#F3EEE5]'
                       }`}
                     >
                       Bank / 1Link
@@ -363,31 +363,31 @@ export const CheckoutPage = () => {
                   </div>
 
                   {/* Payment Instructions Details Box */}
-                  <div className="p-4 rounded-2xl bg-[#FBF3F0] border border-[#F4E4DE] text-xs space-y-2.5">
+                  <div className="p-4 rounded-2xl bg-[#F3EEE5] border border-[#E8E2D8] text-xs space-y-2.5">
                     {activeMethod === 'easypaisa' && (
                       <>
-                        <div className="flex items-center justify-between pb-2 border-b border-[#F4E4DE]">
+                        <div className="flex items-center justify-between pb-2 border-b border-[#E8E2D8]">
                           <span className="font-semibold text-emerald-800">Easypaisa Mobile Account</span>
-                          <span className="text-[10px] text-[#6B5B55]">Instant Transfer</span>
+                          <span className="text-[10px] text-[#77716A]">Instant Transfer</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-[#6B5B55]">{isRTL ? "اکاؤنٹ ٹائٹل:" : "Account Title:"}</span>
-                          <span className="font-bold text-[#3A3A3A]">{paymentSettings.easypaisa.accountTitle}</span>
+                          <span className="text-[#77716A]">{isRTL ? "اکاؤنٹ ٹائٹل:" : "Account Title:"}</span>
+                          <span className="font-bold text-[#262626]">{paymentSettings.easypaisa.accountTitle}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-[#6B5B55]">{isRTL ? "موبائل نمبر:" : "Account Number:"}</span>
-                          <div className="flex items-center gap-1.5 font-mono font-bold text-[#3A3A3A]">
+                          <span className="text-[#77716A]">{isRTL ? "موبائل نمبر:" : "Account Number:"}</span>
+                          <div className="flex items-center gap-1.5 font-mono font-bold text-[#262626]">
                             <span>{paymentSettings.easypaisa.accountNumber}</span>
                             <button
                               type="button"
                               onClick={() => copyToClipboard(paymentSettings.easypaisa.accountNumber, 'ep')}
-                              className="p-1 hover:text-[#D9A38F]"
+                              className="p-1 hover:text-[#C5A46D]"
                             >
                               {copiedKey === 'ep' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                             </button>
                           </div>
                         </div>
-                        <p className="text-[11px] text-[#6B5B55] pt-1 border-t border-[#F4E4DE]/60 italic">
+                        <p className="text-[11px] text-[#77716A] pt-1 border-t border-[#E8E2D8]/60 italic">
                           {getLocalized(paymentSettings.easypaisa.instructions)}
                         </p>
                       </>
@@ -395,28 +395,28 @@ export const CheckoutPage = () => {
 
                     {activeMethod === 'jazzcash' && (
                       <>
-                        <div className="flex items-center justify-between pb-2 border-b border-[#F4E4DE]">
+                        <div className="flex items-center justify-between pb-2 border-b border-[#E8E2D8]">
                           <span className="font-semibold text-rose-800">JazzCash Account</span>
-                          <span className="text-[10px] text-[#6B5B55]">TID Verification</span>
+                          <span className="text-[10px] text-[#77716A]">TID Verification</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-[#6B5B55]">{isRTL ? "اکاؤنٹ ٹائٹل:" : "Account Title:"}</span>
-                          <span className="font-bold text-[#3A3A3A]">{paymentSettings.jazzcash.accountTitle}</span>
+                          <span className="text-[#77716A]">{isRTL ? "اکاؤنٹ ٹائٹل:" : "Account Title:"}</span>
+                          <span className="font-bold text-[#262626]">{paymentSettings.jazzcash.accountTitle}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-[#6B5B55]">{isRTL ? "اکاؤنٹ نمبر:" : "Account Number:"}</span>
-                          <div className="flex items-center gap-1.5 font-mono font-bold text-[#3A3A3A]">
+                          <span className="text-[#77716A]">{isRTL ? "اکاؤنٹ نمبر:" : "Account Number:"}</span>
+                          <div className="flex items-center gap-1.5 font-mono font-bold text-[#262626]">
                             <span>{paymentSettings.jazzcash.accountNumber}</span>
                             <button
                               type="button"
                               onClick={() => copyToClipboard(paymentSettings.jazzcash.accountNumber, 'jc')}
-                              className="p-1 hover:text-[#D9A38F]"
+                              className="p-1 hover:text-[#C5A46D]"
                             >
                               {copiedKey === 'jc' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                             </button>
                           </div>
                         </div>
-                        <p className="text-[11px] text-[#6B5B55] pt-1 border-t border-[#F4E4DE]/60 italic">
+                        <p className="text-[11px] text-[#77716A] pt-1 border-t border-[#E8E2D8]/60 italic">
                           {getLocalized(paymentSettings.jazzcash.instructions)}
                         </p>
                       </>
@@ -424,28 +424,28 @@ export const CheckoutPage = () => {
 
                     {activeMethod === 'bankTransfer' && (
                       <>
-                        <div className="flex items-center justify-between pb-2 border-b border-[#F4E4DE]">
+                        <div className="flex items-center justify-between pb-2 border-b border-[#E8E2D8]">
                           <span className="font-semibold text-indigo-900">{paymentSettings.bankTransfer.bankName}</span>
-                          <span className="text-[10px] text-[#6B5B55]">{paymentSettings.bankTransfer.branch}</span>
+                          <span className="text-[10px] text-[#77716A]">{paymentSettings.bankTransfer.branch}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-[#6B5B55]">{isRTL ? "اکاؤنٹ ٹائٹل:" : "Account Title:"}</span>
-                          <span className="font-bold text-[#3A3A3A]">{paymentSettings.bankTransfer.accountTitle}</span>
+                          <span className="text-[#77716A]">{isRTL ? "اکاؤنٹ ٹائٹل:" : "Account Title:"}</span>
+                          <span className="font-bold text-[#262626]">{paymentSettings.bankTransfer.accountTitle}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-[#6B5B55]">IBAN:</span>
-                          <div className="flex items-center gap-1.5 font-mono font-bold text-[#3A3A3A]">
+                          <span className="text-[#77716A]">IBAN:</span>
+                          <div className="flex items-center gap-1.5 font-mono font-bold text-[#262626]">
                             <span className="text-[11px]">{paymentSettings.bankTransfer.iban}</span>
                             <button
                               type="button"
                               onClick={() => copyToClipboard(paymentSettings.bankTransfer.iban, 'iban')}
-                              className="p-1 hover:text-[#D9A38F]"
+                              className="p-1 hover:text-[#C5A46D]"
                             >
                               {copiedKey === 'iban' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                             </button>
                           </div>
                         </div>
-                        <p className="text-[11px] text-[#6B5B55] pt-1 border-t border-[#F4E4DE]/60 italic">
+                        <p className="text-[11px] text-[#77716A] pt-1 border-t border-[#E8E2D8]/60 italic">
                           {getLocalized(paymentSettings.bankTransfer.instructions)}
                         </p>
                       </>
@@ -454,9 +454,9 @@ export const CheckoutPage = () => {
                 </div>
 
                 {/* 3. Proof of Payment (Transaction ID & Optional Screenshot) */}
-                <div className="pt-4 border-t border-[#F4E4DE] space-y-4">
+                <div className="pt-4 border-t border-[#E8E2D8] space-y-4">
                   <div>
-                    <label className="block text-xs font-semibold text-[#3A3A3A] mb-1.5">
+                    <label className="block text-xs font-semibold text-[#262626] mb-1.5">
                       {isRTL ? "ٹرانزیکشن ID (Trx ID / TID / ریفرنس نمبر) *" : "Payment Transaction ID (Trx ID / TID) *"}
                     </label>
                     <input
@@ -466,20 +466,20 @@ export const CheckoutPage = () => {
                       value={formData.transactionId}
                       onChange={handleInputChange}
                       placeholder={isRTL ? "مثال: 37372910482 یا TID 8558" : "e.g. 37372910482 or TID 8558"}
-                      className="w-full px-4 py-3 rounded-xl border border-[#F4E4DE] text-sm font-mono text-[#3A3A3A] focus:outline-none focus:border-[#D9A38F] bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-[#E8E2D8] text-sm font-mono text-[#262626] focus:outline-none focus:border-[#C5A46D] bg-white"
                     />
-                    <p className="text-[11px] text-[#6B5B55] mt-1">
+                    <p className="text-[11px] text-[#77716A] mt-1">
                       {isRTL ? "ادائیگی کے بعد موصول ہونے والا تصدیقی ایس ایم ایس کوڈ درج کریں۔" : "Enter the verification reference from your payment confirmation SMS."}
                     </p>
                   </div>
 
                   {/* Optional Payment Screenshot Upload */}
                   <div>
-                    <label className="block text-xs font-semibold text-[#3A3A3A] mb-1.5">
+                    <label className="block text-xs font-semibold text-[#262626] mb-1.5">
                       {isRTL ? "ادائیگی کا اسکرین شاٹ (اختیاری)" : "Payment Screenshot (Optional)"}
                     </label>
                     {screenshotDataUrl ? (
-                      <div className="relative inline-block border border-[#F4E4DE] rounded-xl p-2 bg-[#FBF3F0]">
+                      <div className="relative inline-block border border-[#E8E2D8] rounded-xl p-2 bg-[#F3EEE5]">
                         <img
                           src={screenshotDataUrl}
                           alt="Payment Screenshot"
@@ -495,12 +495,12 @@ export const CheckoutPage = () => {
                         </button>
                       </div>
                     ) : (
-                      <label className="border-2 border-dashed border-[#F4E4DE] hover:border-[#D9A38F] rounded-xl p-4 flex flex-col items-center justify-center cursor-pointer transition-colors bg-[#FBF3F0]/40">
-                        <Upload className="w-6 h-6 text-[#D9A38F] mb-1" />
-                        <span className="text-xs font-medium text-[#3A3A3A]">
+                      <label className="border-2 border-dashed border-[#E8E2D8] hover:border-[#C5A46D] rounded-xl p-4 flex flex-col items-center justify-center cursor-pointer transition-colors bg-[#F3EEE5]/40">
+                        <Upload className="w-6 h-6 text-[#C5A46D] mb-1" />
+                        <span className="text-xs font-medium text-[#262626]">
                           {isRTL ? "رسید کی تصویر یا اسکرین شاٹ اپلوڈ کریں" : "Click to upload payment receipt or screenshot"}
                         </span>
-                        <span className="text-[10px] text-[#6B5B55] mt-0.5">PNG, JPG up to 2MB</span>
+                        <span className="text-[10px] text-[#77716A] mt-0.5">PNG, JPG up to 2MB</span>
                         <input
                           type="file"
                           accept="image/*"
@@ -525,7 +525,7 @@ export const CheckoutPage = () => {
                       ? (isRTL ? "آرڈر تصدیق کے لیے محفوظ ہو رہا ہے..." : "Saving Order in Database...")
                       : (isRTL ? "آرڈر مکمل کریں (ادائیگی تصدیق کے لیے بھیجیں)" : "Submit Order (Pending Payment Verification)")}
                   </Button>
-                  <p className="text-[11px] text-center text-[#6B5B55] mt-2">
+                  <p className="text-[11px] text-center text-[#77716A] mt-2">
                     {isRTL ? "آرڈر کی حیثیت: 'Pending payment verification' کے طور پر محفوظ ہوگی۔" : "Order will be saved with status 'Pending payment verification' in clinic Firestore."}
                   </p>
                 </div>
@@ -535,23 +535,23 @@ export const CheckoutPage = () => {
 
           {/* Mini Cart Order Summary Card */}
           <div className="lg:col-span-1">
-            <Card className="p-6 bg-[#FBF3F0]/60 border-[#F4E4DE] sticky top-28">
-              <h3 className="font-serif text-base font-semibold text-[#3A3A3A] mb-3">
+            <Card className="p-6 bg-[#F3EEE5]/60 border-[#E8E2D8] sticky top-28">
+              <h3 className="font-serif text-base font-semibold text-[#262626] mb-3">
                 {isRTL ? "آپ کا آرڈر" : "Order Summary"}
               </h3>
 
-              <div className="divide-y divide-[#F4E4DE] text-xs">
+              <div className="divide-y divide-[#E8E2D8] text-xs">
                 {cart.map((item) => (
                   <div key={item.id} className="py-2.5 flex justify-between gap-2">
                     <div>
-                      <p className="font-semibold text-[#3A3A3A] line-clamp-1">
+                      <p className="font-semibold text-[#262626] line-clamp-1">
                         {getLocalized(item.name)}
                       </p>
-                      <p className="text-[#6B5B55]">Qty: {item.quantity}</p>
+                      <p className="text-[#77716A]">Qty: {item.quantity}</p>
                     </div>
-                    <span className="font-medium text-[#3A3A3A] shrink-0">
+                    <span className="font-medium text-[#262626] shrink-0">
                       {!item.price ? (
-                        <span className="text-[10px] text-[#D9A38F]">{isRTL ? "زیرِ تعین" : "Pending"}</span>
+                        <span className="text-[10px] text-[#C5A46D]">{isRTL ? "زیرِ تعین" : "Pending"}</span>
                       ) : (
                         `${(item.price * item.quantity).toLocaleString()} PKR`
                       )}
@@ -560,22 +560,22 @@ export const CheckoutPage = () => {
                 ))}
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#F4E4DE] space-y-2 text-xs">
-                <div className="flex justify-between text-[#6B5B55]">
+              <div className="mt-4 pt-3 border-t border-[#E8E2D8] space-y-2 text-xs">
+                <div className="flex justify-between text-[#77716A]">
                   <span>{isRTL ? "ڈیلیوری:" : "Delivery:"}</span>
                   <span className="font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
                     {isRTL ? "مفت (Free)" : "Free delivery"}
                   </span>
                 </div>
 
-                <div className="flex justify-between text-sm font-semibold text-[#3A3A3A] pt-2 border-t border-[#F4E4DE]">
+                <div className="flex justify-between text-sm font-semibold text-[#262626] pt-2 border-t border-[#E8E2D8]">
                   <span>{isRTL ? "کل رقم:" : "Total to Pay:"}</span>
                   <span>{total > 0 ? `${total.toLocaleString()} PKR` : (isRTL ? "تصدیق کے بعد" : "Pending verification")}</span>
                 </div>
               </div>
 
-              <div className="mt-5 p-3 rounded-xl bg-white border border-[#F4E4DE] text-[11px] text-[#6B5B55] space-y-1">
-                <div className="flex items-center gap-1.5 font-medium text-[#3A3A3A]">
+              <div className="mt-5 p-3 rounded-xl bg-white border border-[#E8E2D8] text-[11px] text-[#77716A] space-y-1">
+                <div className="flex items-center gap-1.5 font-medium text-[#262626]">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
                   <span>{isRTL ? "محفوظ گیسٹ آرڈر" : "Secure Guest Order"}</span>
                 </div>

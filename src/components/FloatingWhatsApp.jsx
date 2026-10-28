@@ -11,15 +11,15 @@ export const FloatingWhatsApp = () => {
   const defaultMsg = getAppointmentBookingMessage('', language);
 
   return (
-    <div className="fixed bottom-12 sm:bottom-14 end-6 z-50 flex items-end gap-3 select-none">
+    <div className="fixed bottom-16 sm:bottom-20 end-6 z-50 flex items-end gap-3 select-none">
       {/* Friendly Chat Tooltip Bubble */}
       {showTooltip && (
-        <div className="hidden sm:flex items-center gap-2 bg-white text-[#3A3A3A] px-3.5 py-2 rounded-2xl shadow-lg border border-[#F4E4DE] text-xs animate-in fade-in slide-in-from-bottom-2 duration-300">
+        <div className="hidden sm:flex items-center gap-2 bg-white text-[#262626] px-3.5 py-2 rounded-2xl shadow-lg border border-[#E8E2D8] text-xs animate-in fade-in slide-in-from-bottom-2 duration-300">
           <div className="flex flex-col text-start">
-            <span className="font-semibold text-[#D9A38F]">
+            <span className="font-semibold text-[#C5A46D]">
               {isRTL ? "آن لائن کلینک رابطہ" : "Royal Clinic WhatsApp"}
             </span>
-            <span className="text-[11px] text-[#6B5B55]">
+            <span className="text-[11px] text-[#77716A]">
               {t('whatsapp.chatBubble')}
             </span>
           </div>
@@ -29,7 +29,7 @@ export const FloatingWhatsApp = () => {
               e.stopPropagation();
               setShowTooltip(false);
             }}
-            className="p-1 text-[#6B5B55] hover:text-[#3A3A3A] rounded-md transition-colors"
+            className="p-1 text-[#77716A] hover:text-[#262626] rounded-md transition-colors"
             aria-label="Close message"
           >
             <X className="w-3.5 h-3.5" />
