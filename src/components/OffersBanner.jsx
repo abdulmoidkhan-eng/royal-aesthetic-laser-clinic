@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, X, Calendar, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
-import { getOffersBanner } from '../firebase/contentService.js';
 import { buildWhatsAppLink } from '../utils/whatsapp.js';
 
 export const OffersBanner = () => {
@@ -19,6 +18,7 @@ export const OffersBanner = () => {
     let isMounted = true;
     async function fetchBanner() {
       try {
+        const { getOffersBanner } = await import('../firebase/contentService.js');
         const data = await getOffersBanner();
         if (isMounted && data) {
           setBanner(data);

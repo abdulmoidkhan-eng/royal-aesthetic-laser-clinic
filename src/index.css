@@ -19,9 +19,9 @@
   --color-royal-muted: #77716A;
 
   /* Typography */
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-urdu: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', serif;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-urdu: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', 'Urdu Typesetting', serif;
 }
 
 :root {

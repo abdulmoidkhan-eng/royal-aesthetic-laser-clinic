@@ -6,9 +6,6 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
-import { getActiveServices } from '../firebase/servicesService.js';
-import { getProducts } from '../firebase/shopService.js';
-import { getReviews } from '../firebase/contentService.js';
 import { SEED_SERVICES } from '../data/seedServices.js';
 import { SEED_PRODUCTS } from '../data/seedProducts.js';
 import { CLINIC_INFO } from '../data/clinicInfo.js';
@@ -35,6 +32,15 @@ export const HomePage = () => {
     let isMounted = true;
     async function loadData() {
       try {
+        const [
+          { getActiveServices },
+          { getProducts },
+          { getReviews }
+        ] = await Promise.all([
+          import('../firebase/servicesService.js'),
+          import('../firebase/shopService.js'),
+          import('../firebase/contentService.js')
+        ]);
         const [servicesData, prodsData, reviewsData] = await Promise.all([
           getActiveServices(),
           getProducts(),

@@ -18,7 +18,12 @@ export default defineConfig(() => {
       modulePreload: {
         polyfill: false,
         resolveDependencies: (filename, deps) => {
-          return deps.filter(dep => !dep.includes('firebase-auth') && !dep.includes('AdminPage'));
+          return deps.filter(dep => 
+            !dep.includes('firebase-auth') && 
+            !dep.includes('firebase-firestore') && 
+            !dep.includes('firebase-core') && 
+            !dep.includes('AdminPage')
+          );
         },
       },
       rollupOptions: {
