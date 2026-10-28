@@ -5,7 +5,7 @@ import {
   LogOut, ExternalLink, AlertTriangle, CheckCircle2, User, RefreshCw,
   Megaphone, Image as ImageIcon, Star
 } from 'lucide-react';
-import { useAdminAuth } from '../context/AdminAuthContext.jsx';
+import { AdminAuthProvider, useAdminAuth } from '../context/AdminAuthContext.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { AUTHORIZED_ADMIN_EMAIL } from '../firebase/adminService.js';
 import Button from '../components/UI/Button.jsx';
@@ -20,7 +20,7 @@ import BannerManager from '../components/Admin/BannerManager.jsx';
 import GalleryManager from '../components/Admin/GalleryManager.jsx';
 import ReviewsManager from '../components/Admin/ReviewsManager.jsx';
 
-export const AdminPage = () => {
+const AdminPageContent = () => {
   const { 
     currentUser, loading, authError, isAuthorizedAdmin, 
     loginWithGoogle, logoutAdmin, setAuthError 
@@ -313,5 +313,11 @@ export const AdminPage = () => {
     </div>
   );
 };
+
+export const AdminPage = () => (
+  <AdminAuthProvider>
+    <AdminPageContent />
+  </AdminAuthProvider>
+);
 
 export default AdminPage;

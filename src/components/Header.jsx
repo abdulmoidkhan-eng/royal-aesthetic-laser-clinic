@@ -52,6 +52,8 @@ export const Header = () => {
                     alt="Royal Aesthetic & Laser Clinic Logo" 
                     width="44"
                     height="44"
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-full object-contain"
                   />
                 </picture>

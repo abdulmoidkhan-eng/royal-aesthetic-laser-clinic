@@ -6,7 +6,13 @@ import { buildWhatsAppLink } from '../utils/whatsapp.js';
 
 export const OffersBanner = () => {
   const { language, isRTL, t } = useLanguage();
-  const [banner, setBanner] = useState(null);
+  const [banner, setBanner] = useState({
+    active: true,
+    textEn: "Exclusive 50% Off Laser Hair Reduction Consultation",
+    textUr: "لیزر ہیئر ریڈکشن کنسلٹیشن پر خصوصی 50 فیصد رعایت",
+    linkTextEn: "Avail 50% Offer",
+    linkTextUr: "50% آفر حاصل کریں"
+  });
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {

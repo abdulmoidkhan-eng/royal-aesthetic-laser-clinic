@@ -8,6 +8,7 @@ import SectionHeader from '../components/UI/SectionHeader.jsx';
 import Card from '../components/UI/Card.jsx';
 import Button from '../components/UI/Button.jsx';
 import Badge from '../components/UI/Badge.jsx';
+import OptimizedImage from '../components/UI/OptimizedImage.jsx';
 
 export const GalleryPage = () => {
   const { isRTL, t, getLocalized } = useLanguage();
@@ -110,9 +111,11 @@ export const GalleryPage = () => {
                 <div>
                   <div className="grid grid-cols-2 relative bg-[#F3EEE5]">
                     <div className="relative aspect-[4/5] border-e border-[#E8E2D8]">
-                      <img
+                      <OptimizedImage
                         src={beforeImg}
                         alt={`Before: ${title || 'Treatment'}`}
+                        width="320"
+                        height="400"
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
@@ -121,9 +124,11 @@ export const GalleryPage = () => {
                       </span>
                     </div>
                     <div className="relative aspect-[4/5]">
-                      <img
+                      <OptimizedImage
                         src={afterImg}
                         alt={`After: ${title || 'Treatment'}`}
+                        width="320"
+                        height="400"
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />

@@ -2,7 +2,6 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext.jsx';
 import { CartProvider } from './context/CartContext.jsx';
-import { AdminAuthProvider } from './context/AdminAuthContext.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import FloatingWhatsApp from './components/FloatingWhatsApp.jsx';
@@ -36,8 +35,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <LanguageProvider>
-      <AdminAuthProvider>
-        <CartProvider>
+      <CartProvider>
           <BrowserRouter>
             <ScrollToTop />
             <RouteSEO />
@@ -74,7 +72,6 @@ export default function App() {
             </div>
           </BrowserRouter>
         </CartProvider>
-      </AdminAuthProvider>
     </LanguageProvider>
   );
 }
