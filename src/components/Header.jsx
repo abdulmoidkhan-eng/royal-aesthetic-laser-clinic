@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBag, ChevronRight, Search } from 'lucide-react';
+import { Menu, X, ShoppingBag, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
 import { CLINIC_INFO } from '../data/clinicInfo.js';
 import { buildWhatsAppLink, getAppointmentBookingMessage } from '../utils/whatsapp.js';
 import Button from './UI/Button.jsx';
-import ConcernSearch from './ConcernSearch.jsx';
 
 export const Header = () => {
   const { language, setLanguage, isRTL, t } = useLanguage();
   const { cartCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const location = useLocation();
 
   const navLinks = [
@@ -44,7 +42,6 @@ export const Header = () => {
               className="flex items-center gap-3 group focus:outline-none shrink-0"
               onClick={() => {
                 setMobileMenuOpen(false);
-                setMobileSearchOpen(false);
               }}
             >
               <div className="w-11 h-11 rounded-xl overflow-hidden shadow-xs border border-[#E8E2D8] bg-white group-hover:border-[#C5A46D] group-hover:scale-105 transition-all shrink-0 flex items-center justify-center p-0.5">
@@ -89,23 +86,8 @@ export const Header = () => {
               })}
             </nav>
 
-            {/* Reusable ConcernSearch (Desktop header) */}
-            <div className="hidden lg:block w-64 xl:w-72">
-              <ConcernSearch variant="header" />
-            </div>
-
             {/* Right Side Actions */}
             <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-              {/* Mobile Search Toggle */}
-              <button
-                type="button"
-                onClick={() => setMobileSearchOpen(prev => !prev)}
-                className="lg:hidden p-2 rounded-xl text-[#262626] hover:bg-[#F3EEE5] transition-colors"
-                aria-label="Toggle Concern Search"
-              >
-                <Search className="w-5 h-5 text-[#C5A46D]" />
-              </button>
-
               {/* Language Switch: EN | اردو */}
               <div className="flex items-center bg-[#F3EEE5] rounded-xl p-1 border border-[#E8E2D8]">
                 <button
@@ -138,16 +120,13 @@ export const Header = () => {
               {/* Cart Icon */}
               <Link
                 to="/cart"
-                className="relative p-2 rounded-xl text-[#262626] hover:bg-[#F3EEE5] transition-colors focus:outline-none"
+                className="relative p-2 sm:p-2.5 min-w-[42px] min-h-[42px] flex items-center justify-center rounded-xl text-[#262626] hover:bg-[#F3EEE5] active:scale-95 transition-all focus:outline-none touch-manipulation select-none"
                 aria-label="Shopping Cart"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setMobileSearchOpen(false);
-                }}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 <ShoppingBag className="w-5 h-5 text-[#262626]" />
                 {cartCount > 0 && (
-                  <span className="absolute top-1 end-1 bg-[#C5A46D] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+                  <span className="pointer-events-none absolute -top-0.5 -end-0.5 sm:top-0 sm:end-0 bg-[#C5A46D] text-white text-[10px] font-bold min-w-[18px] h-[18px] px-1 rounded-full flex items-center justify-center shadow-xs ring-2 ring-white tabular-nums">
                     {cartCount}
                   </span>
                 )}
@@ -178,22 +157,10 @@ export const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Search Popover Strip */}
-        {mobileSearchOpen && (
-          <div className="lg:hidden px-4 py-3 bg-[#F3EEE5]/95 border-t border-[#E8E2D8] animate-in fade-in duration-200">
-            <ConcernSearch variant="header" autoFocus />
-          </div>
-        )}
-
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="xl:hidden fixed inset-x-0 top-20 bg-[#FAF8F3] border-b border-[#E8E2D8] shadow-xl animate-in slide-in-from-top-2 duration-200 max-h-[calc(100vh-5rem)] overflow-y-auto">
             <div className="px-5 py-6 space-y-4">
-              {/* Search in mobile drawer */}
-              <div className="mb-3">
-                <ConcernSearch variant="hero" />
-              </div>
-
               <nav className="flex flex-col space-y-1">
                 {navLinks.map((link) => {
                   const active = isActive(link.to);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   Sparkles, Calendar, ShieldCheck, Clock, MapPin, 
-  ChevronRight, ArrowRight, MessageCircle, Star, CheckCircle2 
+  ChevronRight, ArrowRight, MessageCircle, Star, CheckCircle2, ShoppingBag 
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
@@ -85,72 +85,49 @@ export const HomePage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#FAF8F3] text-[#262626]">
       {/* 1. Royal Luxury Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F3] via-[#F3EEE5]/40 to-[#FAF8F3] pt-12 pb-16 sm:pt-20 sm:pb-24 border-b border-[#E8E2D8]">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F3] via-[#F3EEE5]/40 to-[#FAF8F3] pt-8 pb-12 sm:pt-20 sm:pb-24 border-b border-[#E8E2D8]">
         {/* Decorative subtle ambient luxury lighting */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-[#C5A46D]/10 via-[#FAF8F3]/5 to-transparent blur-3xl pointer-events-none" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          {/* Eyebrow Location Pill */}
+          {/* Eyebrow Location Pill (Responsive on small mobile screens) */}
           <a
             href={CLINIC_INFO.googleMapsUrl || "https://maps.app.goo.gl/MQF1gR36KicZYmhu5"}
             target="_blank"
             rel="noopener noreferrer"
             title={isRTL ? "گوگل میپس پر کلینک کا مقام کھولیں" : "Open clinic location on Google Maps"}
-            className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/95 hover:bg-white border border-[#E8E2D8] hover:border-[#C5A46D] text-xs font-medium text-[#262626] mb-6 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer"
+            className="group inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/95 hover:bg-white border border-[#E8E2D8] hover:border-[#C5A46D] text-[11px] sm:text-xs font-medium text-[#262626] mb-5 sm:mb-6 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer max-w-full"
           >
-            <span className="flex h-2 w-2 relative">
+            <span className="flex h-2 w-2 relative shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C5A46D] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C5A46D]"></span>
             </span>
             <MapPin className="w-3.5 h-3.5 text-[#C5A46D] shrink-0 group-hover:scale-110 transition-transform" />
-            <span className="text-[#262626] group-hover:text-[#9E7F47] transition-colors">
+            <span className="text-[#262626] group-hover:text-[#9E7F47] transition-colors truncate max-w-[210px] xs:max-w-none">
               {isRTL ? "تھانہ مالاکنڈ، پل چوکی • بالمقابل میرال ریسٹورنٹ" : "Pul Chowki, Opp. Meeral Restaurant • Thana, Malakand"}
             </span>
-            <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#9E7F47] bg-[#F3EEE5] px-2.5 py-0.5 rounded-full border border-[#E8E2D8] group-hover:bg-[#EAE2D3] transition-colors">
-              <span>{isRTL ? "نقشہ دیکھیں" : "View on Maps"}</span>
+            <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-[#9E7F47] bg-[#F3EEE5] px-2 sm:px-2.5 py-0.5 rounded-full border border-[#E8E2D8] group-hover:bg-[#EAE2D3] transition-colors shrink-0">
+              <span>{isRTL ? "نقشہ" : "Maps"}</span>
               <span className="text-[10px]">↗</span>
             </span>
           </a>
 
           {/* Main Headline */}
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#262626] font-normal tracking-tight leading-[1.15] max-w-4xl mx-auto">
+          <h1 className="font-serif text-[26px] xs:text-3xl sm:text-5xl md:text-6xl text-[#262626] font-normal tracking-tight leading-[1.2] sm:leading-[1.15] max-w-4xl mx-auto px-1 sm:px-0">
             {t('tagline')}
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-[#77716A] max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-3.5 sm:mt-6 text-sm sm:text-lg text-[#77716A] max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
             {t('heroSubtitle')}
           </p>
 
-          {/* Dual Hero Action CTAs */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5">
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={handleGeneralBook}
-              className="shadow-sm hover:shadow-md gap-2"
-            >
-              <Calendar className="w-4 h-4 text-white" />
-              <span>{isRTL ? "وقتِ ملاقات بک کریں" : "Book Doctor Appointment"}</span>
-            </Button>
-            <Link to="/services">
-              <Button
-                variant="secondary"
-                size="lg"
-                className="gap-2"
-              >
-                <span>{isRTL ? "تمام علاج دیکھیں" : "Explore Treatments"}</span>
-                <ChevronRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
-              </Button>
-            </Link>
-          </div>
-
-          {/* ConcernSearch Component */}
-          <div className="mt-10 sm:mt-12 max-w-2xl mx-auto">
+          {/* ConcernSearch Component (Prominently visible on mobile phones & desktop) */}
+          <div className="mt-5 sm:mt-7 max-w-2xl mx-auto w-full px-1 sm:px-0">
             <ConcernSearch variant="hero" />
 
             {/* Quick Concern Filter Chips */}
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+            <div className="mt-3 sm:mt-3.5 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
               <span className="text-xs text-[#77716A] me-1">
                 {isRTL ? "جلد کے عام مسائل:" : "Common skin concerns:"}
               </span>
@@ -159,7 +136,7 @@ export const HomePage = () => {
                   key={chip.key}
                   type="button"
                   onClick={() => handleChipClick(chip.key)}
-                  className="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E8E2D8] text-[#262626] hover:border-[#C5A46D] hover:bg-[#FAF8F3] transition-all cursor-pointer shadow-2xs"
+                  className="text-[11px] sm:text-xs px-3 sm:px-3.5 py-1.5 rounded-full bg-white border border-[#E8E2D8] text-[#262626] hover:border-[#C5A46D] hover:bg-[#FAF8F3] transition-all cursor-pointer shadow-2xs active:scale-95"
                 >
                   {isRTL ? chip.labelUr : chip.labelEn}
                 </button>
@@ -167,9 +144,42 @@ export const HomePage = () => {
             </div>
           </div>
 
-          {/* Trust Features Strip */}
-          <div className="mt-12 pt-8 border-t border-[#E8E2D8] grid grid-cols-2 md:grid-cols-4 gap-4 text-start">
-            <div className="flex items-center gap-3 p-2">
+          {/* Hero Action CTAs (Mobile Stacked / Touch-Friendly) */}
+          <div className="mt-6 sm:mt-8 flex flex-col xs:flex-row items-stretch xs:items-center justify-center gap-2.5 sm:gap-3.5 w-full max-w-xl mx-auto">
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={handleGeneralBook}
+              className="w-full xs:w-auto shadow-sm hover:shadow-md gap-2 justify-center min-h-[46px]"
+            >
+              <Calendar className="w-4 h-4 text-white" />
+              <span>{isRTL ? "وقتِ ملاقات بک کریں" : "Book Doctor Appointment"}</span>
+            </Button>
+            <Link to="/services" className="w-full xs:w-auto">
+              <Button
+                variant="secondary"
+                size="lg"
+                className="w-full xs:w-auto gap-2 justify-center min-h-[46px]"
+              >
+                <span>{isRTL ? "تمام علاج دیکھیں" : "Explore Treatments"}</span>
+                <ChevronRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
+              </Button>
+            </Link>
+            <Link to="/shop" className="w-full xs:w-auto">
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full xs:w-auto gap-2 justify-center min-h-[46px] border-[#C5A46D] text-[#262626] hover:bg-[#F3EEE5] shadow-2xs"
+              >
+                <ShoppingBag className="w-4 h-4 text-[#C5A46D]" />
+                <span>{isRTL ? "اسکن شاپ" : "Shop Skincare"}</span>
+              </Button>
+            </Link>
+          </div>
+
+          {/* Trust Features Strip (Responsive mobile cards) */}
+          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-[#E8E2D8] grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 text-start">
+            <div className="flex items-center gap-3 p-3 sm:p-2 rounded-2xl bg-white/70 xs:bg-transparent border border-[#E8E2D8] xs:border-0 shadow-2xs xs:shadow-none">
               <div className="w-10 h-10 rounded-xl bg-[#F3EEE5] border border-[#E8E2D8] flex items-center justify-center text-[#C5A46D] shrink-0">
                 <ShieldCheck className="w-5 h-5" />
               </div>
@@ -183,7 +193,7 @@ export const HomePage = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-2">
+            <div className="flex items-center gap-3 p-3 sm:p-2 rounded-2xl bg-white/70 xs:bg-transparent border border-[#E8E2D8] xs:border-0 shadow-2xs xs:shadow-none">
               <div className="w-10 h-10 rounded-xl bg-[#F3EEE5] border border-[#E8E2D8] flex items-center justify-center text-[#C5A46D] shrink-0">
                 <Sparkles className="w-5 h-5" />
               </div>
@@ -197,7 +207,7 @@ export const HomePage = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-2">
+            <div className="flex items-center gap-3 p-3 sm:p-2 rounded-2xl bg-white/70 xs:bg-transparent border border-[#E8E2D8] xs:border-0 shadow-2xs xs:shadow-none">
               <div className="w-10 h-10 rounded-xl bg-[#F3EEE5] border border-[#E8E2D8] flex items-center justify-center text-[#C5A46D] shrink-0">
                 <Clock className="w-5 h-5" />
               </div>
@@ -215,7 +225,7 @@ export const HomePage = () => {
               href={CLINIC_INFO.googleMapsUrl || "https://maps.app.goo.gl/MQF1gR36KicZYmhu5"}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-all group cursor-pointer"
+              className="flex items-center gap-3 p-3 sm:p-2 rounded-2xl bg-white/70 xs:bg-transparent hover:bg-white border border-[#E8E2D8] xs:border-0 shadow-2xs xs:shadow-none transition-all group cursor-pointer"
               title="Google Maps: Royal Aesthetic & Laser Clinic, Thana"
             >
               <div className="w-10 h-10 rounded-xl bg-[#F3EEE5] group-hover:bg-[#C5A46D] group-hover:text-white border border-[#E8E2D8] flex items-center justify-center text-[#C5A46D] shrink-0 transition-colors">

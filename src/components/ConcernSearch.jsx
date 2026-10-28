@@ -133,12 +133,12 @@ export const ConcernSearch = ({
             placeholder={
               isHeader
                 ? (isRTL ? "مسئلہ تلاش کریں..." : "Search concern...")
-                : (isRTL ? "اپنی جلد کا مسئلہ تلاش کریں، مثلاً ایکنی، لیزر مشین / ہیئر ریڈکشن، مائیکرو نیڈلنگ..." : "Search your skin concern, e.g. acne, Laser Machine / Hair Reduction, microneedling...")
+                : (isRTL ? "جلد کا مسئلہ تلاش کریں (ایکنی، لیزر، گلو، PRP)..." : "Search skin concern (acne, laser, glow, PRP)...")
             }
-            className={`w-full rounded-2xl border transition-all text-[#262626] bg-white placeholder:text-[#77716A]/70 focus:outline-none ${
+            className={`w-full rounded-2xl border transition-all text-[#262626] bg-white placeholder:text-[#77716A]/75 focus:outline-none ${
               isHeader
-                ? 'py-2 ps-10 pe-16 text-xs border-[#E8E2D8] focus:border-[#C5A46D]'
-                : 'py-3.5 sm:py-4 ps-11 sm:ps-12 pe-24 sm:pe-28 text-sm sm:text-base border-2 border-[#E8E2D8] focus:border-[#C5A46D] shadow-xs'
+                ? 'py-2 ps-10 pe-16 text-base sm:text-xs border-[#E8E2D8] focus:border-[#C5A46D]'
+                : 'py-3 sm:py-3.5 ps-10 sm:ps-12 pe-20 sm:pe-24 text-base border-2 border-[#E8E2D8] focus:border-[#C5A46D] shadow-xs hover:border-[#C5A46D]/60'
             }`}
           />
 
